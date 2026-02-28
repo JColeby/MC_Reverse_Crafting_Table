@@ -10,8 +10,8 @@ TAG_SET = []    # so we know what tags we need to update
 RECIPE_HASH_SET = []    # so we don't get duplicates of the same recipe
 BAD_RECIPE = []    # contains the recipies that gave us System.Object[]
 
-NEXT_RECIPE_ID = 1  # TODO: Make sure this is set to the next recipeID in the sequence (run "SELECT MAX(RecipeID) FROM public.recipe" to find this number)
-NEXT_ITEM_ID = 1    # TODO: Make sure this is set to the next ItemID in the sequence (run "SELECT MAX(ItemID) FROM public.item" to find this number)
+NEXT_RECIPE_ID = 1  # TODO: Make sure this is set to the next recipeID in the sequence (run "SELECT nextval('recipe_recipeid_seq');" to find this number)
+NEXT_ITEM_ID = 1    # TODO: Make sure this is set to the next ItemID in the sequence (run "SELECT nextval('item_itemid_seq');" to find this number)
 ITEM_NAME_TO_ID = {}    # key is the name as seen in the raw file
 
 
