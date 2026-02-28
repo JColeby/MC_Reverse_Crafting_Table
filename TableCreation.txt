@@ -1,21 +1,24 @@
 CREATE TABLE ITEM
 (
-  ItemID INT NOT NULL,
+  ItemID SERIAL NOT NULL,
   ItemName VARCHAR(64) NOT NULL,
   PRIMARY KEY (ItemID),
   UNIQUE (ItemName)
 );
 
+
 CREATE TABLE RECIPE
 (
-  RecipeID INT NOT NULL,
-  RecipeType VARCHAR(32) NOT NULL,
+  RecipeID SERIAL NOT NULL,
+  RecipeType VARCHAR(20) NOT NULL, 
   ResultQuantity INT NOT NULL,
   Pattern CHAR(9),
   ItemID INT NOT NULL,
   PRIMARY KEY (RecipeID),
-  FOREIGN KEY (ItemID) REFERENCES ITEM(ItemID)
+  FOREIGN KEY (ItemID) REFERENCES ITEM(ItemID),
+  CHECK (RecipeType IN ('crafting_shaped', 'crafting_shapeless', 'stonecutting', 'smelting'))
 );
+
 
 CREATE TABLE INGREDIENT
 (
@@ -25,5 +28,6 @@ CREATE TABLE INGREDIENT
   RecipeID INT NOT NULL,
   PRIMARY KEY (ItemID, RecipeID),
   FOREIGN KEY (ItemID) REFERENCES ITEM(ItemID),
-  FOREIGN KEY (RecipeID) REFERENCES RECIPE(RecipeID)
+  FOREIGN KEY (RecipeID) REFERENCES RECIPE(RecipeID),
+  CHECK (ItemQuantity BETWEEN 1 AND 9)
 );
