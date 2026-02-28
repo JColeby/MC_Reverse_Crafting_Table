@@ -1,0 +1,1340 @@
+recipeID,recipeType,pattern,resultQuantity,ItemID
+1,crafting_shaped,# ####   ,1,2
+2,crafting_shapeless,,1,3
+3,crafting_shapeless,,1,5
+4,crafting_shaped,## ## ## ,3,6
+5,crafting_shaped,W#WW#W   ,3,8
+6,crafting_shaped,#W##W#   ,1,9
+7,crafting_shaped,X X######,6,12
+8,crafting_shapeless,,4,1
+9,crafting_shaped,##       ,1,14
+10,crafting_shaped,###   ###,6,15
+11,crafting_shaped,###### X ,3,16
+12,crafting_shaped,###      ,6,17
+13,crafting_shaped,#  ## ###,4,18
+14,crafting_shaped,######   ,2,19
+15,crafting_shaped,## ##    ,3,21
+16,crafting_shaped,XSXX#XXSX,6,24
+17,crafting_shaped,## ##    ,1,26
+18,crafting_shapeless,,2,29
+19,crafting_shaped,###      ,6,30
+20,stonecutting,,2,30
+21,crafting_shaped,#  ## ###,4,31
+22,stonecutting,,1,31
+23,crafting_shaped,######   ,6,32
+24,stonecutting,,1,32
+25,crafting_shaped,/// / /_/,1,34
+26,crafting_shaped,X  #  Y  ,4,37
+27,smelting,,1,39
+28,crafting_shapeless,,1,41
+29,crafting_shapeless,,1,43
+30,crafting_shapeless,,1,45
+31,crafting_shaped,## ## ## ,3,46
+32,crafting_shaped,W#WW#W   ,3,47
+33,crafting_shaped,#W##W#   ,1,48
+34,crafting_shaped,X X######,6,50
+35,crafting_shaped,#  #     ,1,52
+36,crafting_shaped,###      ,6,53
+37,crafting_shaped,#  ## ###,4,54
+38,crafting_shapeless,,2,42
+39,crafting_shaped,##       ,1,56
+40,crafting_shaped,# ####   ,1,44
+41,crafting_shaped,###   ###,6,57
+42,crafting_shaped,###### X ,3,58
+43,crafting_shaped,###      ,6,51
+44,crafting_shaped,#  ## ###,4,59
+45,crafting_shaped,######   ,2,60
+46,crafting_shaped,PSPP PPSP,1,63
+47,crafting_shaped,GGGGSGOOO,1,67
+48,crafting_shaped,PPPHHHPPP,1,69
+49,crafting_shapeless,,1,72
+50,crafting_shaped,# ####   ,1,74
+51,crafting_shapeless,,1,75
+52,crafting_shapeless,,1,76
+53,crafting_shaped,## ## ## ,3,77
+54,crafting_shaped,W#WW#W   ,3,78
+55,crafting_shaped,#W##W#   ,1,79
+56,crafting_shaped,X X######,6,81
+57,crafting_shapeless,,4,73
+58,crafting_shaped,##       ,1,83
+59,crafting_shaped,###   ###,6,84
+60,crafting_shaped,###### X ,3,85
+61,crafting_shaped,###      ,6,86
+62,crafting_shaped,#  ## ###,4,87
+63,crafting_shaped,######   ,2,88
+64,crafting_shaped,## ##    ,3,90
+65,crafting_shaped,###      ,6,92
+66,stonecutting,,2,92
+67,crafting_shaped,#  ## ###,4,93
+68,stonecutting,,1,93
+69,crafting_shaped,######   ,6,94
+70,stonecutting,,1,94
+71,crafting_shaped,###### | ,1,96
+72,crafting_shaped,###XXX   ,1,97
+73,crafting_shapeless,,1,100
+74,crafting_shaped,##       ,3,101
+75,crafting_shapeless,,8,104
+76,crafting_shapeless,,1,99
+77,crafting_shapeless,,1,99
+78,smelting,,1,108
+79,crafting_shaped,LLLG#G   ,1,110
+80,crafting_shaped,####X####,8,111
+81,crafting_shaped,######   ,16,112
+82,crafting_shaped,####$####,8,112
+83,crafting_shaped,####X####,8,107
+84,crafting_shaped,IIIIXI###,1,117
+85,crafting_shapeless,,2,119
+86,crafting_shaped,###### | ,1,121
+87,crafting_shaped,###XXX   ,1,122
+88,crafting_shapeless,,1,124
+89,crafting_shaped,##       ,3,125
+90,crafting_shapeless,,8,126
+91,crafting_shapeless,,1,123
+92,crafting_shapeless,,1,123
+93,smelting,,1,130
+94,crafting_shaped,LLLG#G   ,1,131
+95,crafting_shapeless,,1,133
+96,crafting_shaped,####X####,8,134
+97,crafting_shaped,######   ,16,135
+98,crafting_shaped,####$####,8,135
+99,crafting_shaped,####X####,8,129
+100,crafting_shaped,#########,1,138
+101,crafting_shapeless,,3,137
+102,crafting_shapeless,,9,137
+103,crafting_shapeless,,1,141
+104,crafting_shaped,###XXX###,1,142
+105,crafting_shapeless,,1,144
+106,crafting_shaped, #X# X #X,1,146
+107,crafting_shaped,# # #    ,4,70
+108,crafting_shaped,###      ,1,148
+109,crafting_shaped, B ###   ,1,150
+110,smelting,,1,152
+111,crafting_shaped,## ##    ,1,153
+112,crafting_shaped,###      ,6,154
+113,stonecutting,,2,154
+114,crafting_shaped,#  ## ###,4,155
+115,stonecutting,,1,155
+116,crafting_shaped,######   ,6,156
+117,stonecutting,,1,156
+118,crafting_shaped,###### | ,1,158
+119,crafting_shaped,###XXX   ,1,159
+120,crafting_shapeless,,1,161
+121,crafting_shaped,##       ,3,162
+122,crafting_shapeless,,8,163
+123,crafting_shapeless,,1,160
+124,smelting,,1,166
+125,crafting_shaped,LLLG#G   ,1,167
+126,crafting_shaped,####X####,8,168
+127,crafting_shaped,######   ,16,169
+128,crafting_shaped,####$####,8,169
+129,crafting_shaped,####X####,8,165
+130,crafting_shaped,X  #  I  ,1,171
+131,crafting_shaped,# # #    ,1,172
+132,crafting_shaped,-  #     ,1,173
+133,crafting_shaped,AAABEBCCC,1,177
+134,crafting_shaped, # #X#   ,1,179
+135,crafting_shaped, S SCSLLL,1,182
+136,crafting_shaped,S  H     ,1,98
+137,crafting_shaped,#   X    ,1,185
+138,crafting_shaped,@@ ## ## ,1,186
+139,crafting_shaped,# ## ####,1,187
+140,smelting,,1,189
+141,crafting_shaped,# ####   ,1,191
+142,crafting_shapeless,,1,192
+143,crafting_shapeless,,1,193
+144,crafting_shaped,## ## ## ,3,194
+145,crafting_shaped,W#WW#W   ,3,195
+146,crafting_shaped,#W##W#   ,1,196
+147,crafting_shaped,X X######,6,198
+148,crafting_shapeless,,4,190
+149,crafting_shaped,##       ,1,200
+150,crafting_shaped,###   ###,6,201
+151,crafting_shaped,###### X ,3,202
+152,crafting_shaped,###      ,6,203
+153,crafting_shaped,#  ## ###,4,204
+154,crafting_shaped,######   ,2,205
+155,crafting_shaped,## ##    ,3,207
+156,crafting_shaped,#### ####,1,4
+157,crafting_shapeless,,1,209
+158,crafting_shaped,###XXX###,1,210
+159,crafting_shaped,#  #     ,1,212
+160,stonecutting,,4,212
+161,stonecutting,,1,212
+162,crafting_shaped,#  #     ,1,216
+163,stonecutting,,1,216
+164,crafting_shaped,#  #     ,1,219
+165,stonecutting,,1,219
+166,crafting_shaped,#  #     ,1,222
+167,stonecutting,,1,222
+168,stonecutting,,1,222
+169,crafting_shaped,#  #     ,1,225
+170,stonecutting,,1,225
+171,crafting_shaped,#  #     ,1,228
+172,stonecutting,,1,228
+173,crafting_shaped,#  #     ,1,231
+174,stonecutting,,1,231
+175,crafting_shaped,#  #     ,1,234
+176,stonecutting,,1,234
+177,crafting_shaped,#  #     ,1,237
+178,stonecutting,,1,237
+179,stonecutting,,1,237
+180,crafting_shaped,#  #     ,1,241
+181,crafting_shaped,#  #     ,1,243
+182,stonecutting,,1,243
+183,stonecutting,,1,243
+184,stonecutting,,1,243
+185,stonecutting,,1,241
+186,crafting_shaped,## ##    ,1,247
+187,crafting_shaped, # #X# # ,1,250
+188,crafting_shapeless,,9,252
+189,crafting_shaped,#########,1,251
+190,smelting,,1,252
+191,smelting,,1,252
+192,crafting_shaped,DG GD    ,4,256
+193,crafting_shaped,#S##C####,2,257
+194,crafting_shaped,###      ,6,215
+195,stonecutting,,2,215
+196,crafting_shaped,#  ## ###,4,258
+197,stonecutting,,1,258
+198,crafting_shaped,######   ,6,259
+199,stonecutting,,1,259
+200,crafting_shaped,###      ,6,260
+201,stonecutting,,2,260
+202,crafting_shaped,#  ## ###,4,261
+203,stonecutting,,1,261
+204,crafting_shaped,######   ,6,262
+205,stonecutting,,1,262
+206,crafting_shaped, # #X#III,1,264
+207,crafting_shaped, # #X# # ,1,265
+208,crafting_shaped,# ## ####,1,266
+209,crafting_shaped,####X####,1,269
+210,smelting,,1,271
+211,smelting,,1,273
+212,smelting,,1,275
+213,smelting,,1,277
+214,smelting,,1,279
+215,smelting,,1,281
+216,smelting,,1,283
+217,crafting_shaped,#X#      ,8,284
+218,crafting_shaped,XX X#  # ,1,286
+219,crafting_shaped,######   ,16,287
+220,crafting_shaped,#########,1,213
+221,crafting_shaped,X XX X   ,1,288
+222,crafting_shaped, C CBC R ,4,289
+223,crafting_shaped,N  I  N  ,1,291
+224,crafting_shaped,####X####,1,292
+225,crafting_shaped,X XXXXXXX,1,293
+226,crafting_shaped,## ## ## ,3,294
+227,crafting_shaped, M M M M ,4,295
+228,stonecutting,,4,295
+229,crafting_shaped,XXXX X   ,1,296
+230,crafting_shaped,XX  #  # ,1,297
+231,crafting_shapeless,,9,170
+232,crafting_shaped,#########,1,170
+233,smelting,,1,170
+234,smelting,,1,170
+235,smelting,,1,170
+236,crafting_shapeless,,9,170
+237,crafting_shaped,XXXX#XXXX,1,303
+238,crafting_shaped,XXXX XX X,1,304
+239,crafting_shapeless,,9,290
+240,smelting,,1,290
+241,crafting_shaped,XXX #  # ,1,305
+242,crafting_shaped,X  #  #  ,1,306
+243,crafting_shaped,  X # #  ,1,307
+244,crafting_shaped,X  X  #  ,1,308
+245,crafting_shaped,## ##    ,1,309
+246,smelting,,1,311
+247,smelting,,1,313
+248,smelting,,1,314
+249,smelting,,1,316
+250,smelting,,1,317
+251,crafting_shaped,####C#RDR,1,320
+252,crafting_shaped,## ##    ,1,318
+253,crafting_shaped, L  R  L ,1,323
+254,crafting_shapeless,,1,325
+255,crafting_shapeless,,1,327
+256,crafting_shaped,## ## ## ,3,328
+257,crafting_shaped,W#WW#W   ,3,329
+258,crafting_shaped,#W##W#   ,1,330
+259,crafting_shaped,X X######,6,332
+260,crafting_shaped,## ##    ,3,334
+261,crafting_shapeless,,4,326
+262,crafting_shaped,##       ,1,336
+263,crafting_shaped,###   ###,6,337
+264,crafting_shaped,###### X ,3,338
+265,crafting_shaped,###      ,6,339
+266,crafting_shaped,#  ## ###,4,340
+267,crafting_shaped,######   ,2,341
+268,crafting_shaped,#&#~$~ # ,1,343
+269,crafting_shaped,## ##    ,4,214
+270,stonecutting,,4,214
+271,crafting_shaped,###      ,6,211
+272,stonecutting,,8,211
+273,stonecutting,,2,211
+274,crafting_shaped,#  ## ###,4,344
+275,stonecutting,,4,344
+276,stonecutting,,1,344
+277,crafting_shaped,## ##    ,4,345
+278,stonecutting,,1,345
+279,crafting_shaped,###      ,6,346
+280,stonecutting,,2,346
+281,stonecutting,,2,346
+282,crafting_shaped,## ##    ,4,347
+283,stonecutting,,1,347
+284,crafting_shaped,###      ,6,348
+285,stonecutting,,2,348
+286,stonecutting,,2,348
+287,crafting_shaped,###### | ,1,350
+288,crafting_shaped,###XXX   ,1,351
+289,crafting_shapeless,,1,353
+290,crafting_shaped,##       ,3,354
+291,crafting_shapeless,,8,355
+292,crafting_shapeless,,2,352
+293,crafting_shapeless,,2,352
+294,smelting,,1,359
+295,crafting_shaped,LLLG#G   ,1,360
+296,crafting_shaped,####X####,8,361
+297,crafting_shaped,######   ,16,362
+298,crafting_shaped,####$####,8,362
+299,crafting_shaped,####X####,8,358
+300,crafting_shaped,# ####   ,1,364
+301,crafting_shapeless,,1,365
+302,crafting_shapeless,,1,366
+303,crafting_shaped,## ## ## ,3,367
+304,crafting_shaped,W#WW#W   ,3,368
+305,crafting_shaped,#W##W#   ,1,369
+306,crafting_shaped,X X######,6,371
+307,crafting_shapeless,,4,363
+308,crafting_shaped,##       ,1,373
+309,crafting_shaped,###   ###,6,374
+310,crafting_shaped,###### X ,3,375
+311,crafting_shaped,###      ,6,376
+312,crafting_shaped,#  ## ###,4,377
+313,crafting_shaped,######   ,2,378
+314,crafting_shaped,## ##    ,3,380
+315,crafting_shaped,SSSSISSSS,1,382
+316,crafting_shaped,###      ,6,383
+317,stonecutting,,2,383
+318,crafting_shaped,#  ## ###,4,384
+319,stonecutting,,1,384
+320,crafting_shaped,GGGQQQWWW,1,385
+321,crafting_shaped, # # # # ,1,386
+322,smelting,,1,387
+323,crafting_shaped,SS SS    ,4,310
+324,stonecutting,,1,310
+325,stonecutting,,1,310
+326,crafting_shaped,###      ,6,389
+327,stonecutting,,2,389
+328,stonecutting,,2,389
+329,stonecutting,,2,389
+330,crafting_shaped,#  ## ###,4,390
+331,stonecutting,,1,390
+332,stonecutting,,1,390
+333,stonecutting,,1,390
+334,crafting_shaped,######   ,6,391
+335,stonecutting,,1,391
+336,stonecutting,,1,391
+337,stonecutting,,1,391
+338,crafting_shaped,SS SS    ,4,312
+339,stonecutting,,1,312
+340,stonecutting,,1,312
+341,stonecutting,,1,312
+342,crafting_shaped,###      ,6,392
+343,stonecutting,,2,392
+344,stonecutting,,2,392
+345,stonecutting,,2,392
+346,stonecutting,,2,392
+347,crafting_shaped,#  ## ###,4,393
+348,stonecutting,,1,393
+349,stonecutting,,1,393
+350,stonecutting,,1,393
+351,stonecutting,,1,393
+352,crafting_shaped,######   ,6,394
+353,stonecutting,,1,394
+354,stonecutting,,1,394
+355,stonecutting,,1,394
+356,stonecutting,,1,394
+357,crafting_shaped,X XX#XXRX,6,396
+358,crafting_shapeless,,9,136
+359,crafting_shaped,XX X#  # ,1,399
+360,crafting_shaped,#########,1,397
+361,crafting_shaped,X XX X   ,1,400
+362,crafting_shaped,X XXXXXXX,1,401
+363,smelting,,1,136
+364,smelting,,1,136
+365,crafting_shaped,XXXX X   ,1,404
+366,crafting_shaped,XX  #  # ,1,405
+367,crafting_shaped,XXXX XX X,1,406
+368,crafting_shaped,XXX #  # ,1,407
+369,crafting_shaped,X  #  #  ,1,408
+370,crafting_shaped,  X # #  ,1,409
+371,crafting_shaped,X  X  #  ,1,410
+372,crafting_shaped,CQ QC    ,2,27
+373,crafting_shaped,###      ,6,411
+374,stonecutting,,2,411
+375,crafting_shaped,#  ## ###,4,412
+376,stonecutting,,1,412
+377,crafting_shaped,######   ,6,413
+378,stonecutting,,1,413
+379,crafting_shaped,####X##R#,1,414
+380,crafting_shaped,####X####,1,417
+381,crafting_shapeless,,9,419
+382,crafting_shaped,#########,1,418
+383,smelting,,1,419
+384,crafting_shaped,## ##    ,1,422
+385,crafting_shaped,#### ##R#,1,319
+386,crafting_shaped,#S##C####,2,423
+387,crafting_shapeless,,1,97
+388,crafting_shapeless,,1,101
+389,crafting_shapeless,,1,110
+390,crafting_shapeless,,1,95
+391,crafting_shapeless,,1,122
+392,crafting_shapeless,,1,125
+393,crafting_shapeless,,1,131
+394,crafting_shapeless,,1,120
+395,crafting_shapeless,,1,159
+396,crafting_shapeless,,1,162
+397,crafting_shapeless,,1,167
+398,crafting_shapeless,,1,157
+399,crafting_shapeless,,1,351
+400,crafting_shapeless,,1,354
+401,crafting_shapeless,,1,360
+402,crafting_shapeless,,1,349
+403,crafting_shapeless,,1,425
+404,crafting_shapeless,,1,426
+405,crafting_shapeless,,1,427
+406,crafting_shapeless,,1,428
+407,crafting_shapeless,,1,429
+408,crafting_shapeless,,1,430
+409,crafting_shapeless,,1,431
+410,crafting_shapeless,,1,432
+411,crafting_shapeless,,1,434
+412,crafting_shapeless,,1,435
+413,crafting_shapeless,,1,436
+414,crafting_shapeless,,1,437
+415,crafting_shapeless,,1,439
+416,crafting_shapeless,,1,440
+417,crafting_shapeless,,1,441
+418,crafting_shapeless,,1,442
+419,crafting_shapeless,,1,444
+420,crafting_shapeless,,1,445
+421,crafting_shapeless,,1,446
+422,crafting_shapeless,,1,447
+423,crafting_shapeless,,1,449
+424,crafting_shapeless,,1,450
+425,crafting_shapeless,,1,451
+426,crafting_shapeless,,1,452
+427,crafting_shapeless,,1,454
+428,crafting_shapeless,,1,455
+429,crafting_shapeless,,1,456
+430,crafting_shapeless,,1,457
+431,crafting_shapeless,,1,459
+432,crafting_shapeless,,1,460
+433,crafting_shapeless,,1,461
+434,crafting_shapeless,,1,462
+435,crafting_shapeless,,1,464
+436,crafting_shapeless,,1,465
+437,crafting_shapeless,,1,466
+438,crafting_shapeless,,1,467
+439,crafting_shapeless,,1,469
+440,crafting_shapeless,,1,470
+441,crafting_shapeless,,1,471
+442,crafting_shapeless,,1,472
+443,crafting_shapeless,,1,474
+444,crafting_shapeless,,1,475
+445,crafting_shapeless,,1,476
+446,crafting_shapeless,,1,477
+447,crafting_shapeless,,1,479
+448,crafting_shapeless,,1,480
+449,crafting_shapeless,,1,481
+450,crafting_shapeless,,1,482
+451,crafting_shapeless,,9,484
+452,crafting_shaped,#########,1,483
+453,smelting,,1,484
+454,smelting,,1,484
+455,crafting_shaped, B D#D###,1,487
+456,crafting_shaped,####E####,1,489
+457,crafting_shapeless,,1,488
+458,crafting_shaped,GGGGEGGTG,1,491
+459,crafting_shaped,/  #     ,4,493
+460,crafting_shaped,## ##    ,4,495
+461,stonecutting,,1,495
+462,crafting_shaped,###      ,6,496
+463,stonecutting,,2,496
+464,stonecutting,,2,496
+465,crafting_shaped,#  ## ###,4,497
+466,stonecutting,,1,497
+467,stonecutting,,1,497
+468,crafting_shaped,######   ,6,498
+469,stonecutting,,1,498
+470,stonecutting,,1,498
+471,crafting_shaped,#  #     ,1,500
+472,stonecutting,,4,500
+473,stonecutting,,1,500
+474,crafting_shaped, C CBC R ,4,503
+475,crafting_shaped, M M M M ,4,504
+476,stonecutting,,4,504
+477,crafting_shaped,## ##    ,4,502
+478,stonecutting,,4,502
+479,crafting_shaped,###      ,6,499
+480,stonecutting,,8,499
+481,stonecutting,,2,499
+482,crafting_shaped,#  ## ###,4,505
+483,stonecutting,,4,505
+484,stonecutting,,1,505
+485,crafting_shaped,#S##C####,2,506
+486,crafting_shapeless,,1,509
+487,crafting_shapeless,,1,510
+488,crafting_shapeless,,3,512
+489,crafting_shapeless,,3,513
+490,crafting_shaped,  # #X# X,1,183
+491,crafting_shaped,@@ ## ## ,1,514
+492,crafting_shapeless,,1,515
+493,crafting_shapeless,,1,517
+494,crafting_shaped,# # #    ,1,518
+495,crafting_shaped,#S##C####,2,520
+496,crafting_shaped,#### ####,1,116
+497,crafting_shapeless,,1,521
+498,smelting,,1,64
+499,crafting_shaped,# # #    ,3,523
+500,crafting_shaped,######   ,16,113
+501,crafting_shaped,####X####,1,526
+502,crafting_shaped,## ##    ,1,528
+503,crafting_shapeless,,1,531
+504,crafting_shaped,####X####,1,533
+505,crafting_shaped,XX X#  # ,1,535
+506,crafting_shaped,X XX X   ,1,536
+507,crafting_shaped,####X####,1,537
+508,crafting_shaped,X XXXXXXX,1,538
+509,crafting_shaped,XXXX X   ,1,539
+510,crafting_shaped,XX  #  # ,1,540
+511,crafting_shaped,XXXX XX X,1,541
+512,crafting_shaped,XXX #  # ,1,542
+513,crafting_shaped,X  #  #  ,1,543
+514,crafting_shaped,  X # #  ,1,544
+515,crafting_shaped,X  X  #  ,1,545
+516,crafting_shaped,#########,1,546
+517,crafting_shapeless,,9,248
+518,crafting_shaped,#########,1,248
+519,smelting,,1,248
+520,smelting,,1,248
+521,smelting,,1,248
+522,smelting,,1,248
+523,crafting_shapeless,,9,524
+524,smelting,,1,524
+525,crafting_shapeless,,1,551
+526,crafting_shaped,###      ,6,552
+527,stonecutting,,2,552
+528,crafting_shaped,#  ## ###,4,553
+529,stonecutting,,1,553
+530,crafting_shaped,######   ,6,554
+531,stonecutting,,1,554
+532,crafting_shaped,###### | ,1,555
+533,crafting_shaped,###XXX   ,1,425
+534,crafting_shapeless,,1,556
+535,crafting_shaped,##       ,3,426
+536,crafting_shapeless,,8,557
+537,crafting_shapeless,,2,424
+538,crafting_shapeless,,1,424
+539,smelting,,1,560
+540,crafting_shaped,LLLG#G   ,1,427
+541,crafting_shaped,####X####,8,561
+542,crafting_shaped,######   ,16,562
+543,crafting_shaped,####$####,8,562
+544,crafting_shaped,####X####,8,559
+545,crafting_shaped,###### | ,1,563
+546,crafting_shaped,###XXX   ,1,429
+547,crafting_shapeless,,1,564
+548,crafting_shaped,##       ,3,430
+549,crafting_shapeless,,8,565
+550,smelting,,1,356
+551,smelting,,1,568
+552,crafting_shaped,LLLG#G   ,1,431
+553,crafting_shaped,####X####,8,569
+554,crafting_shaped,######   ,16,570
+555,crafting_shaped,####$####,8,570
+556,crafting_shaped,####X####,8,567
+557,crafting_shaped,I-I# #   ,1,572
+558,crafting_shapeless,,1,573
+559,crafting_shaped,##       ,1,574
+560,crafting_shaped,## ##    ,1,575
+561,crafting_shaped,## ##    ,1,577
+562,crafting_shapeless,,4,576
+563,crafting_shaped,I IICI I ,1,578
+564,crafting_shapeless,,1,579
+565,crafting_shaped,#S##C####,2,580
+566,crafting_shaped,XX X#  # ,1,582
+567,crafting_shaped,######   ,16,583
+568,crafting_shaped,#########,1,584
+569,crafting_shaped,X XX X   ,1,585
+570,crafting_shaped,N  I  N  ,1,11
+571,crafting_shaped,X XXXXXXX,1,587
+572,crafting_shaped,## ## ## ,3,588
+573,crafting_shaped,XXXX X   ,1,589
+574,crafting_shaped,XX  #  # ,1,590
+575,crafting_shapeless,,9,23
+576,crafting_shaped,#########,1,23
+577,smelting,,1,23
+578,smelting,,1,23
+579,smelting,,1,23
+580,crafting_shaped,XXXX XX X,1,594
+581,crafting_shapeless,,9,586
+582,smelting,,1,586
+583,crafting_shaped,XXX #  # ,1,595
+584,crafting_shaped,X  #  #  ,1,596
+585,crafting_shaped,  X # #  ,1,597
+586,crafting_shaped,X  X  #  ,1,598
+587,crafting_shaped,## ##    ,1,599
+588,crafting_shaped,####X####,1,529
+589,crafting_shaped,A  B     ,1,602
+590,crafting_shaped,####X####,1,603
+591,crafting_shaped,# ####   ,1,605
+592,crafting_shapeless,,1,606
+593,crafting_shapeless,,1,607
+594,crafting_shaped,## ## ## ,3,608
+595,crafting_shaped,W#WW#W   ,3,609
+596,crafting_shaped,#W##W#   ,1,610
+597,crafting_shaped,X X######,6,612
+598,crafting_shapeless,,4,604
+599,crafting_shaped,##       ,1,614
+600,crafting_shaped,###   ###,6,615
+601,crafting_shaped,###### X ,3,616
+602,crafting_shaped,###      ,6,617
+603,crafting_shaped,#  ## ###,4,618
+604,crafting_shaped,######   ,2,619
+605,crafting_shaped,## ##    ,3,621
+606,crafting_shaped,# ##### #,3,622
+607,crafting_shaped,XXXX#XXXX,1,623
+608,crafting_shaped,#########,1,624
+609,crafting_shapeless,,9,127
+610,smelting,,1,127
+611,smelting,,1,127
+612,crafting_shaped,~~ ~~   ~,2,627
+613,smelting,,1,629
+614,crafting_shaped,## ##    ,1,109
+615,crafting_shaped,X XX X   ,1,631
+616,crafting_shaped,X XXXXXXX,1,632
+617,crafting_shaped,XXXX X   ,1,633
+618,crafting_shaped,X XXXXX X,1,634
+619,crafting_shaped,XXXX XX X,1,635
+620,crafting_shaped,SSS B  S ,1,636
+621,crafting_shaped,X  #     ,1,637
+622,crafting_shaped,#  #  #  ,1,638
+623,crafting_shaped,###### | ,1,639
+624,crafting_shaped,###XXX   ,1,434
+625,crafting_shapeless,,1,640
+626,crafting_shaped,##       ,3,435
+627,crafting_shapeless,,8,641
+628,crafting_shapeless,,1,433
+629,crafting_shapeless,,2,433
+630,smelting,,1,644
+631,crafting_shaped,LLLG#G   ,1,436
+632,crafting_shaped,####X####,8,645
+633,crafting_shaped,######   ,16,646
+634,crafting_shaped,####$####,8,646
+635,crafting_shaped,####X####,8,643
+636,crafting_shaped,###### | ,1,647
+637,crafting_shaped,###XXX   ,1,439
+638,crafting_shapeless,,1,648
+639,crafting_shaped,##       ,3,440
+640,crafting_shapeless,,8,649
+641,crafting_shapeless,,1,438
+642,crafting_shapeless,,3,438
+643,crafting_shapeless,,2,438
+644,crafting_shapeless,,1,438
+645,crafting_shapeless,,1,438
+646,smelting,,1,653
+647,crafting_shaped,LLLG#G   ,1,441
+648,crafting_shaped,####X####,8,654
+649,crafting_shaped,######   ,16,655
+650,crafting_shaped,####$####,8,655
+651,crafting_shaped,####X####,8,652
+652,crafting_shaped,##       ,1,656
+653,crafting_shaped,###### | ,1,657
+654,crafting_shaped,###XXX   ,1,444
+655,crafting_shapeless,,1,658
+656,crafting_shaped,##       ,3,445
+657,crafting_shapeless,,8,659
+658,crafting_shapeless,,2,443
+659,smelting,,1,443
+660,smelting,,1,662
+661,crafting_shaped,LLLG#G   ,1,446
+662,crafting_shaped,####X####,8,663
+663,crafting_shaped,######   ,16,664
+664,crafting_shaped,####$####,8,664
+665,crafting_shaped,####X####,8,661
+666,crafting_shaped,SSSS#SSSS,1,665
+667,crafting_shaped,@@ ##    ,1,666
+668,crafting_shaped, #  I    ,1,668
+669,crafting_shaped,###### | ,1,669
+670,crafting_shaped,###XXX   ,1,449
+671,crafting_shapeless,,1,670
+672,crafting_shaped,##       ,3,450
+673,crafting_shapeless,,8,671
+674,crafting_shapeless,,1,448
+675,crafting_shapeless,,3,448
+676,crafting_shapeless,,4,448
+677,crafting_shapeless,,2,448
+678,crafting_shapeless,,2,448
+679,smelting,,1,675
+680,crafting_shaped,LLLG#G   ,1,451
+681,crafting_shaped,####X####,8,676
+682,crafting_shaped,######   ,16,677
+683,crafting_shaped,####$####,8,677
+684,crafting_shaped,####X####,8,674
+685,crafting_shaped,## ##    ,1,679
+686,crafting_shapeless,,1,678
+687,crafting_shaped,# ####   ,1,682
+688,crafting_shapeless,,1,683
+689,crafting_shapeless,,1,684
+690,crafting_shaped,## ## ## ,3,685
+691,crafting_shaped,W#WW#W   ,3,686
+692,crafting_shaped,#W##W#   ,1,687
+693,crafting_shaped,X X######,6,689
+694,crafting_shapeless,,4,681
+695,crafting_shaped,##       ,1,691
+696,crafting_shaped,###   ###,6,692
+697,crafting_shaped,###### X ,3,693
+698,crafting_shaped,###      ,6,694
+699,crafting_shaped,#  ## ###,4,695
+700,crafting_shaped,######   ,2,696
+701,crafting_shaped,## ##    ,3,698
+702,crafting_shaped,####X####,1,699
+703,crafting_shapeless,,1,700
+704,crafting_shapeless,,1,701
+705,crafting_shaped,# ####   ,1,208
+706,crafting_shapeless,,1,703
+707,crafting_shapeless,,1,705
+708,crafting_shapeless,,1,705
+709,crafting_shaped,###      ,6,706
+710,stonecutting,,2,706
+711,crafting_shaped,#  ## ###,4,707
+712,stonecutting,,1,707
+713,crafting_shaped,######   ,6,708
+714,stonecutting,,1,708
+715,crafting_shapeless,,1,709
+716,crafting_shapeless,,1,709
+717,crafting_shaped,###      ,6,710
+718,stonecutting,,2,710
+719,crafting_shaped,#  ## ###,4,711
+720,stonecutting,,1,711
+721,crafting_shaped,######   ,6,712
+722,stonecutting,,1,712
+723,crafting_shaped,##       ,3,713
+724,crafting_shapeless,,1,716
+725,crafting_shaped,## ##    ,4,718
+726,crafting_shaped,###      ,6,719
+727,stonecutting,,2,719
+728,crafting_shaped,#  ## ###,4,720
+729,stonecutting,,1,720
+730,crafting_shaped,######   ,6,721
+731,stonecutting,,1,721
+732,crafting_shapeless,,1,723
+733,crafting_shapeless,,1,725
+734,crafting_shaped,#########,1,727
+735,crafting_shapeless,,1,726
+736,crafting_shapeless,,9,726
+737,smelting,,1,728
+738,crafting_shaped,#S##C####,2,731
+739,smelting,,1,732
+740,crafting_shaped,## ##    ,1,220
+741,crafting_shaped,W#WW#W   ,6,733
+742,crafting_shaped,###      ,6,218
+743,stonecutting,,2,218
+744,crafting_shaped,#  ## ###,4,734
+745,stonecutting,,1,734
+746,crafting_shaped,######   ,6,735
+747,stonecutting,,1,735
+748,crafting_shapeless,,1,737
+749,crafting_shaped,####X####,1,738
+750,crafting_shaped,# ####   ,1,740
+751,crafting_shapeless,,1,741
+752,crafting_shapeless,,1,742
+753,crafting_shaped,## ## ## ,3,743
+754,crafting_shaped,W#WW#W   ,3,744
+755,crafting_shaped,#W##W#   ,1,745
+756,crafting_shaped,X X######,6,747
+757,crafting_shapeless,,4,739
+758,crafting_shaped,##       ,1,749
+759,crafting_shaped,###   ###,6,750
+760,crafting_shaped,###### X ,3,751
+761,crafting_shaped,###      ,6,752
+762,crafting_shaped,#  ## ###,4,753
+763,crafting_shaped,######   ,2,754
+764,crafting_shaped,## ##    ,3,756
+765,crafting_shaped,###RRQ###,1,757
+766,crafting_shaped,###### | ,1,758
+767,crafting_shaped,###XXX   ,1,454
+768,crafting_shapeless,,1,759
+769,crafting_shaped,##       ,3,455
+770,crafting_shapeless,,8,760
+771,crafting_shapeless,,1,453
+772,crafting_shapeless,,1,453
+773,crafting_shapeless,,2,453
+774,crafting_shapeless,,1,453
+775,smelting,,1,765
+776,crafting_shaped,LLLG#G   ,1,456
+777,crafting_shaped,####X####,8,766
+778,crafting_shaped,######   ,16,767
+779,crafting_shaped,####$####,8,767
+780,crafting_shaped,####X####,8,764
+781,crafting_shaped,#  #     ,1,769
+782,stonecutting,,4,769
+783,stonecutting,,1,769
+784,crafting_shaped, C CBC R ,4,772
+785,crafting_shaped, M M M M ,4,773
+786,stonecutting,,4,773
+787,crafting_shaped,## ##    ,4,771
+788,stonecutting,,4,771
+789,crafting_shaped,###      ,6,768
+790,stonecutting,,8,768
+791,stonecutting,,2,768
+792,crafting_shaped,#  ## ###,4,774
+793,stonecutting,,4,774
+794,stonecutting,,1,774
+795,crafting_shapeless,,1,132
+796,crafting_shapeless,,1,717
+797,crafting_shaped,####X####,1,777
+798,crafting_shaped,##       ,3,779
+799,crafting_shaped,# ####   ,1,781
+800,crafting_shapeless,,1,782
+801,crafting_shapeless,,1,783
+802,crafting_shaped,## ## ## ,3,784
+803,crafting_shaped,W#WW#W   ,3,785
+804,crafting_shaped,#W##W#   ,1,786
+805,crafting_shaped,X X######,6,788
+806,crafting_shapeless,,4,780
+807,crafting_shaped,##       ,1,790
+808,crafting_shaped,###   ###,6,791
+809,crafting_shaped,###### X ,3,792
+810,crafting_shaped,###      ,6,793
+811,crafting_shaped,#  ## ###,4,794
+812,crafting_shaped,######   ,2,795
+813,crafting_shaped,## ##    ,3,796
+814,crafting_shaped,###      ,3,140
+815,crafting_shaped,###### | ,1,798
+816,crafting_shaped,###XXX   ,1,459
+817,crafting_shapeless,,1,799
+818,crafting_shaped,##       ,3,460
+819,crafting_shapeless,,8,800
+820,crafting_shapeless,,1,458
+821,crafting_shapeless,,2,458
+822,crafting_shapeless,,1,458
+823,crafting_shapeless,,1,458
+824,crafting_shapeless,,2,458
+825,smelting,,1,806
+826,crafting_shaped,LLLG#G   ,1,461
+827,crafting_shaped,####X####,8,807
+828,crafting_shaped,######   ,16,808
+829,crafting_shaped,####$####,8,808
+830,crafting_shaped,####X####,8,805
+831,crafting_shaped,TTT#X##R#,1,809
+832,crafting_shaped,SS SS    ,4,810
+833,stonecutting,,1,810
+834,crafting_shaped,###      ,6,811
+835,stonecutting,,2,811
+836,stonecutting,,2,811
+837,crafting_shaped,#  ## ###,4,812
+838,stonecutting,,1,812
+839,stonecutting,,1,812
+840,crafting_shaped,SS SS    ,4,814
+841,stonecutting,,1,814
+842,crafting_shaped,SS SS    ,4,223
+843,crafting_shaped,SS SS    ,4,315
+844,stonecutting,,1,315
+845,stonecutting,,1,315
+846,crafting_shaped,###      ,6,815
+847,stonecutting,,2,815
+848,stonecutting,,2,815
+849,stonecutting,,2,815
+850,crafting_shaped,#  ## ###,4,816
+851,stonecutting,,1,816
+852,stonecutting,,1,816
+853,stonecutting,,1,816
+854,crafting_shaped,######   ,6,817
+855,stonecutting,,1,817
+856,stonecutting,,1,817
+857,stonecutting,,1,817
+858,crafting_shapeless,,1,818
+859,stonecutting,,1,223
+860,crafting_shaped,##       ,1,819
+861,crafting_shaped,###      ,6,221
+862,stonecutting,,2,221
+863,stonecutting,,2,221
+864,crafting_shaped,#  ## ###,4,820
+865,stonecutting,,1,820
+866,stonecutting,,1,820
+867,crafting_shaped,######   ,6,821
+868,stonecutting,,1,821
+869,stonecutting,,1,821
+870,crafting_shaped,SS SS    ,4,388
+871,stonecutting,,1,388
+872,crafting_shaped,###      ,6,822
+873,stonecutting,,2,822
+874,stonecutting,,2,822
+875,crafting_shaped,#  ## ###,4,823
+876,stonecutting,,1,823
+877,stonecutting,,1,823
+878,crafting_shaped,######   ,6,824
+879,stonecutting,,1,824
+880,stonecutting,,1,824
+881,crafting_shaped,SS SS    ,4,825
+882,stonecutting,,1,825
+883,crafting_shaped,###      ,6,826
+884,stonecutting,,2,826
+885,stonecutting,,2,826
+886,crafting_shaped,#  ## ###,4,827
+887,stonecutting,,1,827
+888,stonecutting,,1,827
+889,crafting_shaped,SS SS    ,4,828
+890,stonecutting,,1,828
+891,crafting_shaped,###      ,6,829
+892,stonecutting,,2,829
+893,stonecutting,,2,829
+894,crafting_shaped,#  ## ###,4,830
+895,stonecutting,,1,830
+896,stonecutting,,1,830
+897,crafting_shaped,SS SS    ,4,244
+898,stonecutting,,1,244
+899,crafting_shaped,###      ,6,831
+900,stonecutting,,2,831
+901,stonecutting,,2,831
+902,crafting_shaped,#  ## ###,4,832
+903,stonecutting,,1,832
+904,stonecutting,,1,832
+905,crafting_shaped,######   ,6,833
+906,stonecutting,,1,833
+907,stonecutting,,1,833
+908,smelting,,1,492
+909,crafting_shaped,X XX#XXRX,6,835
+910,crafting_shaped,## ##    ,1,836
+911,crafting_shapeless,,1,837
+912,crafting_shaped,###      ,6,838
+913,stonecutting,,2,838
+914,crafting_shaped,#  ## ###,4,839
+915,stonecutting,,1,839
+916,crafting_shaped,###      ,6,840
+917,stonecutting,,2,840
+918,crafting_shaped,#  ## ###,4,841
+919,stonecutting,,1,841
+920,crafting_shaped,######   ,6,842
+921,stonecutting,,1,842
+922,crafting_shapeless,,1,844
+923,crafting_shapeless,,4,845
+924,crafting_shaped,###### | ,1,846
+925,crafting_shaped,###XXX   ,1,464
+926,crafting_shapeless,,1,847
+927,crafting_shaped,##       ,3,465
+928,crafting_shapeless,,8,848
+929,crafting_shapeless,,2,463
+930,smelting,,1,850
+931,crafting_shaped,LLLG#G   ,1,466
+932,crafting_shaped,####X####,8,851
+933,crafting_shaped,######   ,16,852
+934,crafting_shaped,####$####,8,852
+935,crafting_shaped,####X####,8,849
+936,crafting_shaped,FF FF    ,4,853
+937,crafting_shaped,#  #     ,1,855
+938,stonecutting,,1,855
+939,stonecutting,,2,854
+940,stonecutting,,1,856
+941,smelting,,1,263
+942,crafting_shaped,## ##    ,1,226
+943,crafting_shaped,## ##    ,4,858
+944,stonecutting,,1,858
+945,crafting_shaped,#  #     ,2,859
+946,stonecutting,,1,859
+947,stonecutting,,2,224
+948,stonecutting,,1,860
+949,crafting_shapeless,,1,861
+950,crafting_shapeless,,1,861
+951,crafting_shaped,X XX#XX X,16,862
+952,crafting_shaped,#S##C####,2,863
+953,crafting_shapeless,,9,300
+954,crafting_shaped,#########,1,864
+955,crafting_shapeless,,9,550
+956,crafting_shaped,#########,1,865
+957,crafting_shapeless,,9,593
+958,crafting_shaped,#########,1,866
+959,crafting_shaped,SSSSCSSSS,1,868
+960,crafting_shapeless,,9,249
+961,crafting_shaped,#########,1,869
+962,smelting,,1,249
+963,smelting,,1,249
+964,crafting_shaped, R RGR R ,1,872
+965,crafting_shaped,X  #     ,1,22
+966,crafting_shaped,###### | ,1,873
+967,crafting_shaped,###XXX   ,1,469
+968,crafting_shapeless,,1,874
+969,crafting_shaped,##       ,3,470
+970,crafting_shapeless,,8,875
+971,crafting_shapeless,,1,468
+972,crafting_shapeless,,1,468
+973,crafting_shapeless,,2,468
+974,crafting_shapeless,,1,468
+975,smelting,,1,880
+976,crafting_shaped,LLLG#G   ,1,471
+977,crafting_shaped,NW WN    ,1,881
+978,crafting_shaped,###      ,6,882
+979,stonecutting,,2,882
+980,crafting_shaped,#  ## ###,4,883
+981,stonecutting,,1,883
+982,crafting_shaped,######   ,6,884
+983,stonecutting,,1,884
+984,crafting_shaped,## ##    ,1,229
+985,stonecutting,,2,227
+986,stonecutting,,1,886
+987,crafting_shaped,######   ,6,887
+988,stonecutting,,1,887
+989,crafting_shaped,####X####,8,888
+990,crafting_shaped,######   ,16,889
+991,crafting_shaped,####$####,8,889
+992,crafting_shaped,####X####,8,879
+993,crafting_shaped,#X#III   ,1,890
+994,crafting_shaped,#########,1,322
+995,smelting,,1,892
+996,crafting_shaped,## ##    ,1,232
+997,crafting_shaped,###      ,6,230
+998,stonecutting,,2,230
+999,crafting_shaped,#  ## ###,4,893
+1000,stonecutting,,1,893
+1001,crafting_shaped,######   ,6,894
+1002,stonecutting,,1,894
+1003,crafting_shapeless,,9,891
+1004,crafting_shaped,OOOGGGOOO,1,896
+1005,crafting_shaped,#S##C####,2,897
+1006,crafting_shaped, X X#X   ,1,898
+1007,crafting_shaped,## ##    ,1,235
+1008,stonecutting,,2,233
+1009,stonecutting,,1,899
+1010,crafting_shaped,######   ,6,900
+1011,stonecutting,,1,900
+1012,crafting_shaped,I~II II I,6,901
+1013,crafting_shaped,SCSCCCSCS,1,903
+1014,crafting_shaped,#S##C####,2,904
+1015,crafting_shaped,#S##C####,2,905
+1016,crafting_shaped, # #     ,1,906
+1017,crafting_shaped,WoWWWW W ,1,908
+1018,crafting_shaped,-  #  -  ,1,910
+1019,crafting_shaped,#S##C####,2,911
+1020,crafting_shapeless,,1,913
+1021,crafting_shapeless,,9,680
+1022,crafting_shaped,#########,1,914
+1023,crafting_shaped,@@ ## ## ,1,915
+1024,crafting_shaped, # #X# # ,1,916
+1025,smelting,,1,917
+1026,smelting,,1,918
+1027,crafting_shaped,###      ,6,919
+1028,stonecutting,,2,919
+1029,crafting_shaped,#  ## ###,4,920
+1030,stonecutting,,1,920
+1031,smelting,,1,921
+1032,crafting_shaped,###      ,6,922
+1033,stonecutting,,2,922
+1034,crafting_shaped,#  ## ###,4,923
+1035,stonecutting,,1,923
+1036,smelting,,1,924
+1037,crafting_shaped,###      ,6,925
+1038,stonecutting,,2,925
+1039,crafting_shaped,#  ## ###,4,926
+1040,stonecutting,,1,926
+1041,smelting,,1,115
+1042,crafting_shaped,###      ,6,33
+1043,stonecutting,,2,33
+1044,crafting_shaped,#S##C####,2,927
+1045,crafting_shaped,###      ,6,929
+1046,crafting_shaped,## ##    ,1,928
+1047,crafting_shaped, S S#SLLL,1,932
+1048,crafting_shaped,XXXX#XXXX,1,934
+1049,crafting_shaped, # #X# # ,2,935
+1050,crafting_shaped,#S##C####,2,936
+1051,smelting,,1,938
+1052,crafting_shaped,# ####   ,1,940
+1053,crafting_shapeless,,1,941
+1054,crafting_shapeless,,1,942
+1055,crafting_shaped,## ## ## ,3,943
+1056,crafting_shaped,W#WW#W   ,3,944
+1057,crafting_shaped,#W##W#   ,1,945
+1058,crafting_shaped,X X######,6,947
+1059,crafting_shapeless,,4,939
+1060,crafting_shaped,##       ,1,949
+1061,crafting_shaped,###   ###,6,950
+1062,crafting_shaped,###### X ,3,951
+1063,crafting_shaped,###      ,6,952
+1064,crafting_shaped,#  ## ###,4,953
+1065,crafting_shaped,######   ,2,954
+1066,crafting_shaped,## ##    ,3,956
+1067,crafting_shaped, #  X  X ,1,957
+1068,crafting_shaped,#  #     ,4,7
+1069,crafting_shaped,S  P     ,1,958
+1070,crafting_shaped,#  #     ,1,7
+1071,smelting,,1,239
+1072,crafting_shaped, I ###   ,1,959
+1073,crafting_shaped,XX X#  # ,1,961
+1074,crafting_shaped,## ##    ,4,238
+1075,stonecutting,,1,238
+1076,crafting_shaped,###      ,6,236
+1077,stonecutting,,2,236
+1078,stonecutting,,2,236
+1079,crafting_shaped,#  ## ###,4,962
+1080,stonecutting,,1,962
+1081,stonecutting,,1,962
+1082,crafting_shaped,######   ,6,963
+1083,stonecutting,,1,963
+1084,stonecutting,,1,963
+1085,crafting_shapeless,,1,964
+1086,crafting_shaped,XX  #  # ,1,965
+1087,crafting_shaped,XXX #  # ,1,966
+1088,crafting_shaped,##       ,1,395
+1089,crafting_shaped,X  #  #  ,1,967
+1090,crafting_shaped,###      ,6,571
+1091,stonecutting,,2,571
+1092,crafting_shaped,  X # #  ,1,968
+1093,crafting_shaped,#  ## ###,4,969
+1094,stonecutting,,1,969
+1095,crafting_shaped,X  X  #  ,1,970
+1096,crafting_shaped,## ##    ,3,971
+1097,crafting_shaped,## ##    ,3,972
+1098,crafting_shaped,## ##    ,3,973
+1099,crafting_shaped,## ##    ,3,974
+1100,crafting_shaped,## ##    ,3,975
+1101,crafting_shaped,## ##    ,3,976
+1102,crafting_shaped,## ##    ,3,977
+1103,crafting_shaped,## ##    ,3,978
+1104,crafting_shaped,## ##    ,3,979
+1105,crafting_shaped,## ##    ,3,980
+1106,crafting_shaped,## ##    ,3,982
+1107,crafting_shapeless,,3,175
+1108,crafting_shapeless,,1,175
+1109,crafting_shapeless,,1,983
+1110,crafting_shapeless,,1,983
+1111,crafting_shapeless,,1,983
+1112,crafting_shapeless,,1,983
+1113,crafting_shapeless,,1,983
+1114,crafting_shapeless,,1,983
+1115,crafting_shapeless,,1,983
+1116,crafting_shapeless,,1,983
+1117,crafting_shapeless,,1,983
+1118,crafting_shapeless,,1,983
+1119,crafting_shapeless,,1,983
+1120,crafting_shapeless,,1,983
+1121,crafting_shapeless,,1,983
+1122,crafting_shapeless,,1,983
+1123,crafting_shapeless,,1,983
+1124,crafting_shapeless,,1,983
+1125,crafting_shaped, R RHR R ,1,986
+1126,smelting,,1,114
+1127,crafting_shaped,#S##C####,2,987
+1128,crafting_shaped, S SGS S ,2,988
+1129,crafting_shapeless,,1,990
+1130,crafting_shapeless,,1,991
+1131,crafting_shaped,I  S  #  ,2,342
+1132,crafting_shaped,SS SS    ,4,245
+1133,stonecutting,,1,245
+1134,stonecutting,,1,245
+1135,crafting_shaped,###      ,6,242
+1136,stonecutting,,2,242
+1137,stonecutting,,2,242
+1138,stonecutting,,2,242
+1139,crafting_shaped,#  ## ###,4,992
+1140,stonecutting,,1,992
+1141,stonecutting,,1,992
+1142,stonecutting,,1,992
+1143,crafting_shaped,######   ,6,993
+1144,stonecutting,,1,993
+1145,stonecutting,,1,993
+1146,stonecutting,,1,993
+1147,crafting_shaped,###      ,6,240
+1148,stonecutting,,2,240
+1149,crafting_shaped,#  ## ###,4,994
+1150,stonecutting,,1,994
+1151,crafting_shaped,######   ,6,995
+1152,stonecutting,,1,995
+1153,crafting_shaped,XXXX X   ,1,997
+1154,crafting_shaped,#S##C####,2,998
+1155,crafting_shaped,#S##C####,2,999
+1156,crafting_shapeless,,1,1001
+1157,crafting_shaped,## ## ## ,3,1002
+1158,crafting_shaped,W#WW#W   ,3,1003
+1159,crafting_shaped,#W##W#   ,1,1004
+1160,crafting_shaped,#   X    ,1,1006
+1161,crafting_shaped,X X######,6,1007
+1162,crafting_shaped,## ##    ,3,1009
+1163,crafting_shapeless,,4,1000
+1164,crafting_shaped,##       ,1,1011
+1165,crafting_shaped,###   ###,6,1012
+1166,crafting_shaped,###### X ,3,1013
+1167,crafting_shaped,###      ,6,1014
+1168,crafting_shaped,#  ## ###,4,1015
+1169,crafting_shaped,######   ,2,1016
+1170,crafting_shaped, M  M    ,1,1018
+1171,crafting_shapeless,,1,1018
+1172,stonecutting,,4,1018
+1173,stonecutting,,1,1018
+1174,crafting_shapeless,,1,1020
+1175,crafting_shapeless,,1,301
+1176,crafting_shaped, C CBC R ,4,1021
+1177,crafting_shapeless,,1,1021
+1178,crafting_shapeless,,1,1022
+1179,crafting_shapeless,,1,1023
+1180,crafting_shapeless,,1,1024
+1181,crafting_shapeless,,1,1026
+1182,crafting_shaped, M M M M ,4,1027
+1183,crafting_shapeless,,1,1027
+1184,stonecutting,,4,1027
+1185,crafting_shapeless,,1,1028
+1186,crafting_shapeless,,1,1029
+1187,crafting_shaped,## ##    ,4,1019
+1188,crafting_shapeless,,1,1019
+1189,stonecutting,,4,1019
+1190,crafting_shaped,###      ,6,1017
+1191,crafting_shapeless,,1,1017
+1192,stonecutting,,8,1017
+1193,stonecutting,,2,1017
+1194,crafting_shaped,#  ## ###,4,1030
+1195,crafting_shapeless,,1,1030
+1196,stonecutting,,4,1030
+1197,stonecutting,,1,1030
+1198,crafting_shaped, M  M    ,1,1032
+1199,crafting_shapeless,,1,1032
+1200,stonecutting,,4,1032
+1201,stonecutting,,1,1032
+1202,crafting_shapeless,,1,1036
+1203,crafting_shaped, C CBC R ,4,1037
+1204,crafting_shapeless,,1,1037
+1205,crafting_shapeless,,1,1039
+1206,crafting_shapeless,,1,1041
+1207,crafting_shapeless,,1,1043
+1208,crafting_shapeless,,1,1033
+1209,crafting_shapeless,,1,1045
+1210,crafting_shaped, M M M M ,4,1046
+1211,crafting_shapeless,,1,1046
+1212,stonecutting,,4,1046
+1213,crafting_shapeless,,1,1048
+1214,crafting_shapeless,,1,1050
+1215,crafting_shaped,## ##    ,4,1034
+1216,crafting_shapeless,,1,1034
+1217,stonecutting,,4,1034
+1218,crafting_shaped,###      ,6,1031
+1219,crafting_shapeless,,1,1031
+1220,stonecutting,,8,1031
+1221,stonecutting,,2,1031
+1222,crafting_shaped,#  ## ###,4,1051
+1223,crafting_shapeless,,1,1051
+1224,stonecutting,,4,1051
+1225,stonecutting,,1,1051
+1226,crafting_shapeless,,1,1053
+1227,crafting_shapeless,,1,1054
+1228,crafting_shaped, M  M    ,1,1056
+1229,crafting_shapeless,,1,1056
+1230,stonecutting,,4,1056
+1231,stonecutting,,1,1056
+1232,crafting_shapeless,,1,1060
+1233,crafting_shaped, C CBC R ,4,1061
+1234,crafting_shapeless,,1,1061
+1235,crafting_shapeless,,1,1063
+1236,crafting_shapeless,,1,1065
+1237,crafting_shapeless,,1,1067
+1238,crafting_shapeless,,1,1057
+1239,crafting_shapeless,,1,1069
+1240,crafting_shaped, M M M M ,4,1070
+1241,crafting_shapeless,,1,1070
+1242,stonecutting,,4,1070
+1243,crafting_shapeless,,1,1072
+1244,crafting_shapeless,,1,1074
+1245,crafting_shaped,## ##    ,4,1058
+1246,crafting_shapeless,,1,1058
+1247,stonecutting,,4,1058
+1248,crafting_shaped,###      ,6,1055
+1249,crafting_shapeless,,1,1055
+1250,stonecutting,,8,1055
+1251,stonecutting,,2,1055
+1252,crafting_shaped,#  ## ###,4,1075
+1253,crafting_shapeless,,1,1075
+1254,stonecutting,,4,1075
+1255,stonecutting,,1,1075
+1256,crafting_shapeless,,1,1077
+1257,crafting_shaped, M  M    ,1,1079
+1258,crafting_shapeless,,1,1079
+1259,stonecutting,,4,1079
+1260,stonecutting,,1,1079
+1261,crafting_shapeless,,1,1084
+1262,crafting_shaped, C CBC R ,4,1085
+1263,crafting_shapeless,,1,1085
+1264,crafting_shapeless,,1,1088
+1265,crafting_shapeless,,1,1090
+1266,crafting_shapeless,,1,1092
+1267,crafting_shapeless,,1,1081
+1268,crafting_shapeless,,1,1095
+1269,crafting_shaped, M M M M ,4,1096
+1270,crafting_shapeless,,1,1096
+1271,stonecutting,,4,1096
+1272,crafting_shapeless,,1,1099
+1273,crafting_shapeless,,1,1101
+1274,crafting_shaped,## ##    ,4,1082
+1275,crafting_shapeless,,1,1082
+1276,stonecutting,,4,1082
+1277,crafting_shaped,###      ,6,1078
+1278,crafting_shapeless,,1,1078
+1279,stonecutting,,8,1078
+1280,stonecutting,,2,1078
+1281,crafting_shaped,#  ## ###,4,1104
+1282,crafting_shapeless,,1,1104
+1283,stonecutting,,4,1104
+1284,stonecutting,,1,1104
+1285,crafting_shapeless,,1,1107
+1286,crafting_shaped,#S##C####,2,1108
+1287,crafting_shaped,#  #     ,1,1080
+1288,stonecutting,,4,1080
+1289,stonecutting,,1,1080
+1290,crafting_shaped, C CBC R ,4,1086
+1291,crafting_shaped, M M M M ,4,1097
+1292,stonecutting,,4,1097
+1293,crafting_shaped,## ##    ,4,1102
+1294,stonecutting,,4,1102
+1295,crafting_shaped,###      ,6,1103
+1296,stonecutting,,8,1103
+1297,stonecutting,,2,1103
+1298,crafting_shaped,#  ## ###,4,1105
+1299,stonecutting,,4,1105
+1300,stonecutting,,1,1105
+1301,crafting_shapeless,,9,147
+1302,crafting_shaped,###### | ,1,1109
+1303,crafting_shaped,###XXX   ,1,474
+1304,crafting_shapeless,,1,1110
+1305,crafting_shaped,##       ,3,475
+1306,crafting_shapeless,,8,1111
+1307,crafting_shapeless,,1,473
+1308,crafting_shapeless,,1,473
+1309,smelting,,1,1113
+1310,crafting_shaped,LLLG#G   ,1,476
+1311,crafting_shaped,####X####,8,1114
+1312,crafting_shaped,######   ,16,1115
+1313,crafting_shaped,####$####,8,1115
+1314,crafting_shaped,####X####,8,1112
+1315,crafting_shaped,## ##    ,1,477
+1316,crafting_shaped,#S##C####,2,1116
+1317,crafting_shapeless,,4,1117
+1318,crafting_shaped,X  XXXX X,1,1119
+1319,crafting_shaped,XX X#  # ,1,1120
+1320,crafting_shaped,XX  #  # ,1,1121
+1321,crafting_shaped,XXX #  # ,1,1122
+1322,crafting_shaped,X  #  #  ,1,1123
+1323,crafting_shaped,  X # #  ,1,1124
+1324,crafting_shaped,X  X  #  ,1,1125
+1325,crafting_shapeless,,1,1126
+1326,crafting_shaped,###### | ,1,1127
+1327,crafting_shaped,###XXX   ,1,479
+1328,crafting_shapeless,,1,1128
+1329,crafting_shaped,##       ,3,480
+1330,crafting_shapeless,,8,1129
+1331,crafting_shapeless,,1,478
+1332,crafting_shapeless,,2,478
+1333,crafting_shapeless,,1,478
+1334,smelting,,1,1133
+1335,crafting_shaped,LLLG#G   ,1,481
+1336,crafting_shaped,####X####,8,1134
+1337,crafting_shaped,######   ,16,1135
+1338,crafting_shaped,####$####,8,1135
+1339,crafting_shaped,####X####,8,1132
