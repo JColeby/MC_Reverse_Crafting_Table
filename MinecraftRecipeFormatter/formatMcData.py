@@ -2,7 +2,7 @@ import hashlib
 import csv
 import json
 
-RECIPE_TB = [["recipeID", "recipeType", "pattern", "resultQuantity", "ItemID"]]
+RECIPE_TB = [["recipeID", "recipeType", "resultQuantity", "pattern", "ItemID"]]
 ITEM_TB = [["itemID", "itemName"]]
 INGREDIENT_TB = [["recipeID", "itemID", "itemQuantity","patternKey"]]
 
@@ -10,10 +10,9 @@ TAG_SET = []    # so we know what tags we need to update
 RECIPE_HASH_SET = []    # so we don't get duplicates of the same recipe
 BAD_RECIPE = []    # contains the recipies that gave us System.Object[]
 
-NEXT_ITEM_ID = 1
+NEXT_RECIPE_ID = 1  # TODO: Make sure this is set to the next recipeID in the sequence (run "SELECT MAX(RecipeID) FROM public.recipe" to find this number)
+NEXT_ITEM_ID = 1    # TODO: Make sure this is set to the next ItemID in the sequence (run "SELECT MAX(ItemID) FROM public.item" to find this number)
 ITEM_NAME_TO_ID = {}    # key is the name as seen in the raw file
-
-NEXT_RECIPE_ID = 1
 
 
 # ==============={ Table Formatting Functions }===============
@@ -38,9 +37,9 @@ def addItemToTable(itemName):
     return ITEM_NAME_TO_ID[itemName]
 
 
-def addIngredientToTable(recipeHash, itemName, quantity, patternKey=None):
+def addIngredientToTable(recipeID, itemName, quantity, patternKey=None):
     itemID = addItemToTable(itemName)
-    INGREDIENT_TB.append([recipeHash, itemID, quantity,patternKey])
+    INGREDIENT_TB.append([recipeID, itemID, quantity,patternKey])
 
 
 def addRecipeToTable(recipeID, recipeType, result, pattern=None):
@@ -49,12 +48,12 @@ def addRecipeToTable(recipeID, recipeType, result, pattern=None):
     itemName = ""
     for item in recipeResult:  # doing this because the data is stored as an inconsistent malformed dictionary
         if "count=" in item:
-            quantity = item.split("=")[1]
+            quantity = item.split("=")[1].strip("'")
         if "id=" in item:
             itemName = item.split("=")[1]
     itemID = addItemToTable(itemName)
 
-    RECIPE_TB.append([recipeID, recipeType, pattern, quantity, itemID])
+    RECIPE_TB.append([recipeID, recipeType, quantity, pattern, itemID])
 
 
 # ==============={ Recipe Specific Functions }===============
@@ -153,8 +152,8 @@ def addEntry(entry):
 
 def updateNoneTypes(item):
     if item == None:
-        return ""
-    return f"\"{item}\""
+        return "NULL"
+    return f"\'{item}\'"
 
 
 # ==============={ Main Function }===============
@@ -164,19 +163,44 @@ def main():
     for entry in rawRecipeData:
         addEntry(entry)
 
+    recipeInsertValues = []
+    ingredientInsertValues = []
+    itemInsertValues = []
+
     with open("FormattedTables/RecipeTable.csv", "w") as file:
+        file.write("INSERT INTO RECIPE (RecipeID, RecipeType, ResultQuantity, Pattern, ItemID) VALUES\n")
         for item in RECIPE_TB:
-            item[2] = updateNoneTypes(item[2])
-            file.write(f"{item[0]},{item[1]},{item[2]},{item[3]},{item[4]}\n")
+            item[3] = updateNoneTypes(item[3])
+            file.write(f"({item[0]},{item[1]},{item[2]},{item[3]},{item[4]})\n")
+            recipeInsertValues.append(f"({item[0]},'{item[1]}',{item[2]},{item[3]},{item[4]})")
 
     with open("FormattedTables/IngredientTable.csv", "w") as file:
         for item in INGREDIENT_TB:
             item[3] = updateNoneTypes(item[3])
             file.write(f"{item[0]},{item[1]},{item[2]},{item[3]}\n")
+            ingredientInsertValues.append(f"({item[0]},{item[1]},{item[2]},{item[3]})")
 
     with open("FormattedTables/ItemTable.csv", "w") as file:
         for item in ITEM_TB:
             file.write(f"{item[0]},{item[1]}\n")
+            itemInsertValues.append(f"({item[0]},'{item[1]}')")
+
+    with open("../InsertScript.txt", "w") as file:
+        file.write("INSERT INTO public.item (itemID, ItemName) VALUES\n")
+        file.write(',\n'.join(itemInsertValues[1:]) + ";\n\n")
+        # file.write("ON CONFLICT (ItemID) DO NOTHING;\n\n")
+
+        file.write("INSERT INTO public.recipe (RecipeID, RecipeType, ResultQuantity, Pattern, ItemID) VALUES\n")
+        file.write(',\n'.join(recipeInsertValues[1:]) + ";\n\n")
+        # file.write("ON CONFLICT (RecipeID) DO NOTHING;\n\n")
+
+        file.write("INSERT INTO public.ingredient (RecipeID, ItemID, ItemQuantity, PatternKey) VALUES\n")
+        file.write(',\n'.join(ingredientInsertValues[1:]) + ";\n\n")
+
+        # because we are manually setting the ID's in our InsertScript, we need to ensure the next sequence generated is above the values we inserted
+        file.write("SELECT setval('item_itemid_seq', (SELECT MAX(ItemID) FROM public.item));\n")
+        file.write("SELECT setval('recipe_recipeid_seq', (SELECT MAX(RecipeID) FROM public.recipe));\n")
+
 
     with open("AdditionalOutput/TagsPresent.csv", "w") as file:
         for item in TAG_SET:
