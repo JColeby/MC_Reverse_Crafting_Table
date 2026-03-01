@@ -168,10 +168,9 @@ def main():
     itemInsertValues = []
 
     with open("FormattedTables/RecipeTable.csv", "w") as file:
-        file.write("INSERT INTO RECIPE (RecipeID, RecipeType, ResultQuantity, Pattern, ItemID) VALUES\n")
         for item in RECIPE_TB:
             item[3] = updateNoneTypes(item[3])
-            file.write(f"({item[0]},{item[1]},{item[2]},{item[3]},{item[4]})\n")
+            file.write(f"{item[0]},{item[1]},{item[2]},{item[3]},{item[4]}\n")
             recipeInsertValues.append(f"({item[0]},'{item[1]}',{item[2]},{item[3]},{item[4]})")
 
     with open("FormattedTables/IngredientTable.csv", "w") as file:
