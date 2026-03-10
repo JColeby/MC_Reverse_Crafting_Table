@@ -28,7 +28,6 @@ SET row_security = off;
 
 CREATE SCHEMA public;
 
-
 ALTER SCHEMA public OWNER TO pg_database_owner;
 
 --
@@ -39,9 +38,7 @@ ALTER SCHEMA public OWNER TO pg_database_owner;
 
 COMMENT ON SCHEMA public IS 'standard public schema';
 
-
 SET default_tablespace = '';
-
 SET default_table_access_method = heap;
 
 --
@@ -86,7 +83,6 @@ CREATE SEQUENCE public.item_itemid_seq
     NO MAXVALUE
     CACHE 1;
 
-
 ALTER SEQUENCE public.item_itemid_seq OWNER TO postgres;
 
 --
@@ -96,7 +92,6 @@ ALTER SEQUENCE public.item_itemid_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE public.item_itemid_seq OWNED BY public.item.itemid;
-
 
 --
 -- TOC entry 222 (class 1259 OID 16455)
@@ -128,7 +123,6 @@ CREATE SEQUENCE public.recipe_recipeid_seq
     NO MAXVALUE
     CACHE 1;
 
-
 ALTER SEQUENCE public.recipe_recipeid_seq OWNER TO postgres;
 
 --
@@ -139,7 +133,6 @@ ALTER SEQUENCE public.recipe_recipeid_seq OWNER TO postgres;
 
 ALTER SEQUENCE public.recipe_recipeid_seq OWNED BY public.recipe.recipeid;
 
-
 --
 -- TOC entry 4865 (class 2604 OID 16447)
 -- Name: item itemid; Type: DEFAULT; Schema: public; Owner: postgres
@@ -147,14 +140,12 @@ ALTER SEQUENCE public.recipe_recipeid_seq OWNED BY public.recipe.recipeid;
 
 ALTER TABLE ONLY public.item ALTER COLUMN itemid SET DEFAULT nextval('public.item_itemid_seq'::regclass);
 
-
 --
 -- TOC entry 4866 (class 2604 OID 16458)
 -- Name: recipe recipeid; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.recipe ALTER COLUMN recipeid SET DEFAULT nextval('public.recipe_recipeid_seq'::regclass);
-
 
 --
 -- TOC entry 4876 (class 2606 OID 16479)
@@ -164,7 +155,6 @@ ALTER TABLE ONLY public.recipe ALTER COLUMN recipeid SET DEFAULT nextval('public
 ALTER TABLE ONLY public.ingredient
     ADD CONSTRAINT ingredient_pkey PRIMARY KEY (itemid, recipeid);
 
-
 --
 -- TOC entry 4870 (class 2606 OID 16453)
 -- Name: item item_itemname_key; Type: CONSTRAINT; Schema: public; Owner: postgres
@@ -172,7 +162,6 @@ ALTER TABLE ONLY public.ingredient
 
 ALTER TABLE ONLY public.item
     ADD CONSTRAINT item_itemname_key UNIQUE (itemname);
-
 
 --
 -- TOC entry 4872 (class 2606 OID 16451)
@@ -182,7 +171,6 @@ ALTER TABLE ONLY public.item
 ALTER TABLE ONLY public.item
     ADD CONSTRAINT item_pkey PRIMARY KEY (itemid);
 
-
 --
 -- TOC entry 4874 (class 2606 OID 16465)
 -- Name: recipe recipe_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
@@ -190,7 +178,6 @@ ALTER TABLE ONLY public.item
 
 ALTER TABLE ONLY public.recipe
     ADD CONSTRAINT recipe_pkey PRIMARY KEY (recipeid);
-
 
 --
 -- TOC entry 4878 (class 2606 OID 16480)
@@ -200,7 +187,6 @@ ALTER TABLE ONLY public.recipe
 ALTER TABLE ONLY public.ingredient
     ADD CONSTRAINT ingredient_itemid_fkey FOREIGN KEY (itemid) REFERENCES public.item(itemid);
 
-
 --
 -- TOC entry 4879 (class 2606 OID 16485)
 -- Name: ingredient ingredient_recipeid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
@@ -209,7 +195,6 @@ ALTER TABLE ONLY public.ingredient
 ALTER TABLE ONLY public.ingredient
     ADD CONSTRAINT ingredient_recipeid_fkey FOREIGN KEY (recipeid) REFERENCES public.recipe(recipeid);
 
-
 --
 -- TOC entry 4877 (class 2606 OID 16466)
 -- Name: recipe recipe_itemid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
@@ -217,7 +202,6 @@ ALTER TABLE ONLY public.ingredient
 
 ALTER TABLE ONLY public.recipe
     ADD CONSTRAINT recipe_itemid_fkey FOREIGN KEY (itemid) REFERENCES public.item(itemid);
-
 
 -- Completed on 2026-02-28 19:41:34
 
