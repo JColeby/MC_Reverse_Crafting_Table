@@ -146,6 +146,11 @@ def addEntry(entry):
             return
     except RuntimeError:
         BAD_RECIPE.append(entryString)
+        # need to remove any ingredient entries that were added for the bad recipe
+        i = len(INGREDIENT_TB) - 1
+        while INGREDIENT_TB[i][0] == NEXT_RECIPE_ID:
+            INGREDIENT_TB.pop(i)
+            i -= 1
         return
 
     NEXT_RECIPE_ID += 1
