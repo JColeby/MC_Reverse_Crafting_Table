@@ -1,9 +1,13 @@
 import psycopg2
 import psycopg2.extras
-from fastapi import Depends
+import os
+from dotenv import load_dotenv
+from contextlib import contextmanager
+
 from typing import TypeVar, Type, Callable
 from Objects import *
 
+load_dotenv()
 conn = None
 
 # =========={ Setup }==========
@@ -11,14 +15,15 @@ conn = None
 def init_db():
     global conn
     conn = psycopg2.connect(
-        host="localhost",
-        port=5432,
-        dbname="mydb",
-        user="postgres",
-        password="postgres"
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT"),
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD")
     )
 
 
+@contextmanager
 def get_cursor():
     cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     try:
@@ -36,11 +41,11 @@ def close_db():
 
 
 def get_all_items(cursor) -> dict:
-    cursor.execute("SELECT * FROM public.item")
+    cursor.execute("SELECT * FROM item")
     rows = cursor.fetchall()
     item_dictionary = {}
     for row in rows:
-        item_dictionary[row["ItemName"]] = row['ItemID']
+        item_dictionary[row["itemname"]] = row['itemid']
     return item_dictionary
 
 
@@ -71,6 +76,6 @@ def make_query_by_id(sql: str, tableObj: Type[T]) -> Callable:
 
 
 # These are functions you can call!
-get_ingredient_from_recipeID = make_query_by_id("SELECT * FROM public.ingredient WHERE RecipeID = %s;", Ingredient)
-get_recipe_from_itemID = make_query_by_id("SELECT * FROM public.recipe WHERE ItemID = %s;", Recipe)
-get_recipeSearch_from_itemID = make_query_by_id("SELECT * FROM public.RecipeSearch WHERE ItemID = %s;", RecipeSearch)
+get_ingredient_from_recipeID = make_query_by_id("SELECT * FROM ingredient WHERE RecipeID = %s;", Ingredient)
+get_recipe_from_itemID = make_query_by_id("SELECT * FROM recipe WHERE ItemID = %s;", Recipe)
+get_recipeSearch_from_itemID = make_query_by_id("SELECT * FROM RecipeSearch WHERE ItemID = %s;", RecipeSearch)

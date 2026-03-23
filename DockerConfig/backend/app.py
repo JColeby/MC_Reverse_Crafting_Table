@@ -19,17 +19,17 @@ app = FastAPI(lifespan=lifespan)
 
 @app.get("/")
 async def get_item_dictionary() -> dict:
-    with next(database.get_cursor()) as cursor:
+    with database.get_cursor() as cursor:
         return database.get_all_items(cursor)
 
 
 @app.post("/reverseSearch/")
 async def reverse_search(request: ItemCountList) -> FullRecipeList:
-    with next(database.get_cursor()) as cursor:
+    with database.get_cursor() as cursor:
         return reverseSearch.main(request.itemList, cursor)
 
 
 @app.post("/forwardSearch/")
 async def forward_search(request: ItemCountList) -> RecipeSearchList:
-    with next(database.get_cursor()) as cursor:
+    with database.get_cursor() as cursor:
         return forwardSearch.main(request.itemList, cursor)

@@ -5,29 +5,29 @@ from typing import List
 # =========={ frontend query objects }==========
 
 class ItemCount(BaseModel):
-    itemID: int
-    itemQuantity: int
+    itemid: int
+    itemquantity: int
 
 
 class ItemCountList(BaseModel):
-    itemList: List[ItemCount]
+    itemlist: List[ItemCount]
 
 
 # =========={ table and view objects }==========
 
 class Recipe(BaseModel):
-    recipeID: int
-    recipeType: str
-    resultQuantity: int
+    recipeid: int
+    recipetype: str
+    resultquantity: int
     pattern: str
-    itemID: int
+    itemid: int
 
 
 class Ingredient(BaseModel):
-    RecipeID: int
-    ItemID: int
-    ItemQuantity: int
-    PatternKey: str
+    recipeid: int
+    itemid: int
+    itemquantity: int
+    patternkey: str
 
 
 class RecipeSearch(BaseModel):
@@ -48,7 +48,7 @@ class FullRecipe(BaseModel):
 
 class FullRecipeList(BaseModel):
     recipes: List[FullRecipe]
-    itemList: List[ItemCount]
+    itemlist: List[ItemCount]
 
 
 class RecipeSearchList(BaseModel):

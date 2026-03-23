@@ -10,9 +10,9 @@ Here are the details for each endpoint:
   * this will be returned in the following format:
 ```json
 {
-  "Item1": 1,
-  "Item2": 2,
-  "Item3": 3
+  "item1": 1,
+  "item2": 2,
+  "item3": 3
 }
 ```
 * "/reverseSearch/"
@@ -38,9 +38,9 @@ Here is some sample json for all the objects that are either passed in by the fr
 * ItemCountList - passed into all the endpoints
 ```json
 {
-  "itemList": [
-    { "itemID": 101, "itemQuantity": 3 },
-    { "itemID": 202, "itemQuantity": 1 }
+  "itemlist": [
+    { "itemid": 101, "itemquantity": 3 },
+    { "itemid": 202, "itemquantity": 1 }
   ]
 }
 ```
@@ -89,36 +89,36 @@ Here is some sample json for all the objects that are either passed in by the fr
   "recipes": [
     {
       "recipe": {
-        "recipeID": 1,
-        "recipeType": "crafting",
-        "resultQuantity": 1,
+        "recipeid": 1,
+        "recipetype": "crafting",
+        "resultquantity": 1,
         "pattern": "XXX",
-        "itemID": 101
+        "itemid": 101
       },
       "ingredients": [
-        { "RecipeID": 1, "ItemID": 202, "ItemQuantity": 3, "PatternKey": "X" },
-        { "RecipeID": 1, "ItemID": 203, "ItemQuantity": 1, "PatternKey": "X" }
+        { "recipeid": 1, "itemid": 202, "itemquantity": 3, "patternkey": "X" },
+        { "recipeid": 1, "itemid": 203, "itemquantity": 1, "patternkey": "X" }
       ]
     },
     {
       "recipe": {
-        "recipeID": 2,
-        "recipeType": "smelting",
-        "resultQuantity": 4,
+        "recipeid": 2,
+        "recipetype": "smelting",
+        "resultquantity": 4,
         "pattern": "X_X",
-        "itemID": 102
+        "itemid": 102
       },
       "ingredients": [
-        { "RecipeID": 2, "ItemID": 204, "ItemQuantity": 1, "PatternKey": "X" },
-        { "RecipeID": 2, "ItemID": 205, "ItemQuantity": 2, "PatternKey": "_" }
+        { "recipeid": 2, "itemid": 204, "itemquantity": 1, "patternkey": "X" },
+        { "recipeid": 2, "itemid": 205, "itemquantity": 2, "patternkey": "_" }
       ]
     }
   ],
-  "itemList": [
-    { "itemID": 202, "itemQuantity": 3 },
-    { "itemID": 203, "itemQuantity": 1 },
-    { "itemID": 204, "itemQuantity": 1 },
-    { "itemID": 205, "itemQuantity": 2 }
+  "itemlist": [
+    { "itemid": 202, "itemquantity": 3 },
+    { "itemid": 203, "itemquantity": 1 },
+    { "itemid": 204, "itemquantity": 1 },
+    { "itemid": 205, "itemquantity": 2 }
   ]
 }
 ```
