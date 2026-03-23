@@ -1,5 +1,6 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
+
 
 
 # =========={ frontend query objects }==========
@@ -19,7 +20,7 @@ class Recipe(BaseModel):
     recipeid: int
     recipetype: str
     resultquantity: int
-    pattern: str
+    pattern: Optional[str] = None
     itemid: int
 
 
@@ -27,7 +28,7 @@ class Ingredient(BaseModel):
     recipeid: int
     itemid: int
     itemquantity: int
-    patternkey: str
+    patternkey: Optional[str] = None
 
 
 class RecipeSearch(BaseModel):
@@ -35,8 +36,8 @@ class RecipeSearch(BaseModel):
     recipeitemid: int
     ingredientitemid: int
     recipetype: str
-    pattern: str
-    patternkey: str
+    pattern: Optional[str] = None
+    patternkey: Optional[str] = None
 
 
 # =========={ backend response objects }==========
@@ -53,3 +54,4 @@ class FullRecipeList(BaseModel):
 
 class RecipeSearchList(BaseModel):
     recipies: List[RecipeSearch]
+

@@ -26,10 +26,10 @@ async def get_item_dictionary() -> dict:
 @app.post("/reverseSearch/")
 async def reverse_search(request: ItemCountList) -> FullRecipeList:
     with database.get_cursor() as cursor:
-        return reverseSearch.main(request.itemList, cursor)
+        return reverseSearch.main(request.itemlist, cursor)
 
 
 @app.post("/forwardSearch/")
 async def forward_search(request: ItemCountList) -> RecipeSearchList:
     with database.get_cursor() as cursor:
-        return forwardSearch.main(request.itemList, cursor)
+        return forwardSearch.main(request.itemlist, cursor)

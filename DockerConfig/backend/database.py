@@ -78,4 +78,6 @@ def make_query_by_id(sql: str, tableObj: Type[T]) -> Callable:
 # These are functions you can call!
 get_ingredient_from_recipeID = make_query_by_id("SELECT * FROM ingredient WHERE RecipeID = %s;", Ingredient)
 get_recipe_from_itemID = make_query_by_id("SELECT * FROM recipe WHERE ItemID = %s;", Recipe)
+get_recipe_from_recipeID = make_query_by_id("SELECT * FROM recipe WHERE RecipeID = %s;", Recipe)
+
 get_recipeSearch_from_itemID = make_query_by_id("SELECT * FROM RecipeSearch WHERE ItemID = %s;", RecipeSearch)
