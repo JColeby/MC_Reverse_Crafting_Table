@@ -1,7 +1,35 @@
 from fastapi import FastAPI
+from contextlib import asynccontextmanager
+# importing our files
+import database
+import forwardSearch
+import reverseSearch
+from Objects import *
 
-app = FastAPI()
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    database.init_db()   # runs on startup
+    yield
+    database.close_db()  # runs on shutdown
+
+
+app = FastAPI(lifespan=lifespan)
+
 
 @app.get("/")
-def read_root():
-    return {"message": "Backend is running!"}
+async def get_item_dictionary() -> dict:
+    with next(database.get_cursor()) as cursor:
+        return database.get_all_items(cursor)
+
+
+@app.post("/reverseSearch/")
+async def reverse_search(request: ItemCountList) -> FullRecipeList:
+    with next(database.get_cursor()) as cursor:
+        return reverseSearch.main(request.itemList, cursor)
+
+
+@app.post("/forwardSearch/")
+async def forward_search(request: ItemCountList) -> RecipeSearchList:
+    with next(database.get_cursor()) as cursor:
+        return forwardSearch.main(request.itemList, cursor)
