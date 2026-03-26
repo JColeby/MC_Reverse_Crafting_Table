@@ -2,7 +2,6 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 
-
 # =========={ frontend query objects }==========
 
 class ItemCount(BaseModel):
@@ -22,6 +21,12 @@ class Recipe(BaseModel):
     resultquantity: int
     pattern: Optional[str] = None
     itemid: int
+
+    def __eq__(self, other):
+        return isinstance(other, Recipe) and self.recipeid == other.recipeid
+
+    def __hash__(self):
+        return hash(self.recipeid)
 
 
 class Ingredient(BaseModel):
@@ -46,6 +51,13 @@ class RecipeSearch(BaseModel):
 class FullRecipe(BaseModel):
     recipe: Recipe
     ingredients: List[Ingredient]
+
+    def __eq__(self, other):
+        return isinstance(other, FullRecipe) and self.recipe == other.recipe
+
+    def __hash__(self):
+        return hash(self.recipe)
+
 
 class FullRecipeList(BaseModel):
     recipes: List[FullRecipe]
