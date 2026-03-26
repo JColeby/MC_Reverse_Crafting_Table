@@ -21,19 +21,23 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-form {
+  background-color: #C6C6C6;
+  border-color: black;
+  border-width: 2px;
+  border-style: double;
+  width: 450px;
+  padding: 20px;
 }
 
+.App-quantity {
+  background-color: #8B8B8B8B;
+  width: 50px;
+}
