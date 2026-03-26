@@ -3,12 +3,17 @@ import psycopg2.extras
 import os
 from dotenv import load_dotenv
 from contextlib import contextmanager
-
 from typing import TypeVar, Type, Callable
+from fastapi import HTTPException
+
 from Objects import *
 
 load_dotenv()
 conn = None
+
+T = TypeVar("T", bound=BaseModel)
+
+
 
 # =========={ Setup }==========
 
@@ -49,9 +54,6 @@ def get_all_items(cursor) -> dict:
     return item_dictionary
 
 
-T = TypeVar("T", bound=BaseModel)
-
-
 def make_query_by_id(sql: str, tableObj: Type[T]) -> Callable:
     """
     This is a higher order function that takes in a sql query as a string
@@ -69,6 +71,10 @@ def make_query_by_id(sql: str, tableObj: Type[T]) -> Callable:
     ['list of all the ingredients associated with recipie 1']
     """
     def query(id: int, cursor) -> list[T]:
+        if not isinstance(id, int):
+            raise HTTPException(status_code=422, detail="malformed input: itemid must be an integer")
+        if id < 0:
+            raise HTTPException(status_code=422, detail="malformed input: itemid must be positive")
         cursor.execute(sql, (id,))
         rows = cursor.fetchall()
         return [tableObj(**row) for row in rows]
@@ -78,4 +84,5 @@ def make_query_by_id(sql: str, tableObj: Type[T]) -> Callable:
 # These are functions you can call!
 get_ingredient_from_recipeID = make_query_by_id("SELECT * FROM ingredient WHERE RecipeID = %s;", Ingredient)
 get_recipe_from_itemID = make_query_by_id("SELECT * FROM recipe WHERE ItemID = %s;", Recipe)
+get_recipe_from_recipeID = make_query_by_id("SELECT * FROM recipe WHERE RecipeID = %s;", Recipe)
 get_recipeSearch_from_itemID = make_query_by_id("SELECT * FROM RecipeSearch WHERE ItemID = %s;", RecipeSearch)
