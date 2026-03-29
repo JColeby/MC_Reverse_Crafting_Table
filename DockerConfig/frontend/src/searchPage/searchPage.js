@@ -1,22 +1,39 @@
 
 
-const jsonobj = {
-  "item1": 1,
-  "item2": 2,
-  "item3": 3,
-  "minecraft:stone_sword":4
-};
 
-// TODO: Make a function that can take in up to 10 items
 
-export function SearchPage() {
+// TODO: Make handleAdd output information on what the user has queried
+
+import { useState } from "react";
+
+export function SearchPage({ craftIDs }) {
+    const [requestedItems, setRequestedItems] = useState([]);
+    const [count, setCount] = useState(0);
+    const [largeLoad, setLargeLoad] = useState('');
+
+    function handleAdd(id, qunatity) {
+      if (count >= 10) {
+        requestedItems.push({
+          itemid: id,
+          ingredientquantity: qunatity,
+        });
+      }
+      else {
+        setLargeLoad('Only 10 items may be requested')
+      };
+      <p>
+        { largeLoad } <br></br>
+        { requestedItems.map }
+      </p>
+    }
+
     return (
         <form className="App-form">
           <label htmlFor="itemIDs">Items</label>
           <label htmlFor="quantity">#</label><br></br>
           
           <select id="itemIDs" name="itemIDs">
-            {Object.entries(jsonobj).map(([key, value]) => {
+            {Object.entries(craftIDs).map(([key, value]) => {
             // This function will take all the item ids and their names
             // and make a human readable dropdown for users to use
 
@@ -36,7 +53,7 @@ export function SearchPage() {
 
           </select>
 
-          <input className="App-quantity" type="number" id="quantity" name="quantity"></input><br></br>
+          <input className="App-quantity" type="number" max="10" id="quantity" name="quantity"></input><br></br>
           <input type="submit" value="Add item" name="addItem"></input>
           <input type="submit" value="Find raw materials" name="reverseSearch"></input>
           <input type="submit" value="What can I craft?" name="forwardSearch"></input>
