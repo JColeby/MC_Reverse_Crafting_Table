@@ -7,6 +7,8 @@ const jsonobj = {
   "minecraft:stone_sword":4
 };
 
+// TODO: Make a function that can take in up to 10 items
+
 export function SearchPage() {
     return (
         <form className="App-form">
@@ -15,6 +17,9 @@ export function SearchPage() {
           
           <select id="itemIDs" name="itemIDs">
             {Object.entries(jsonobj).map(([key, value]) => {
+            // This function will take all the item ids and their names
+            // and make a human readable dropdown for users to use
+
             // Remove "minecraft:" prefix
             const rawName = key.split('minecraft:')[1] || key;
             
