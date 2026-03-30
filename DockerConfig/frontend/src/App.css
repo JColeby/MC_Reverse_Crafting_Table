@@ -20,8 +20,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 1vmin);
   color: black;
+}
+
+.form-inputs-row {
+  display: flex;
+  gap: .25rem;              
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.form-labels {
+  display: flex;
+  gap: 5rem;              
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.form-labels label {
+  text-align: center;
+  
 }
 
 .App-link {
