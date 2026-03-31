@@ -12,12 +12,13 @@ const defaultJsonObj = {
 
 function App() {
   const [craftIDs, setCraftIDs] = useState(defaultJsonObj);
+  
 
   useEffect(() => {
     const stored = Cookies.get('craftIDs');
     if (stored) {
       try {
-        const parsed = setCraftIDs(JSON.parse(stored));
+        const parsed = JSON.parse(stored);
         setCraftIDs(parsed);
         return;
       } catch (e) {

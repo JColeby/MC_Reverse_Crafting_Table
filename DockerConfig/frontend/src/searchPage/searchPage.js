@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function SearchPage({ craftIDs }) {
   const [requestedItems, setRequestedItems] = useState([]);
   const [largeLoad, setLargeLoad] = useState("");
   const [itemID, setItemID] = useState(0);
   const [quantity, setQuantity] = useState(0);
+  const navigate = useNavigate();
 
   if (!craftIDs || typeof craftIDs !== 'object') {
   return <div className="App-form">Loading items...</div>;  
@@ -46,12 +48,11 @@ export function SearchPage({ craftIDs }) {
     e.preventDefault();
     // Send to API or navigate with requestedItems
     console.log("Crafting with:", requestedItems);
-    // Example API data format:
-    // const apiData = requestedItems.map(({ itemid, ingredientquantity }) => ({
-    //   itemid,
-    //   ingredientquantity,
-    // }));
-    // navigate("/fsr", { state: { requestedItems } });
+    const apiData = requestedItems.map(({ itemid, ingredientquantity }) => ({
+      itemid,
+      ingredientquantity,
+    }));
+    navigate("/fsr", { state: { apiData } });
   }
 
   function handleReverseSearch(e) {
