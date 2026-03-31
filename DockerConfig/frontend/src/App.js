@@ -7,28 +7,35 @@ import { ForwardSearchResults as FSR } from './forwardSearchResults/forwardSearc
 import { ReverseSearchResults as RSR } from './reverseSearchResults/reverseSearchResults';
 
 const defaultJsonObj = {
-  "minecraft:crafting_table": 1,
-  "minecraft:stone_pickaxe": 2,
-  "minecraft:iron_helmet": 3,
-  "minecraft:stone_sword": 4
+  "basic object": 1,
 };
 
 function App() {
-  const [craftIDs, setCraftIDs] = useState({});
+  const [craftIDs, setCraftIDs] = useState(defaultJsonObj);
 
   useEffect(() => {
     const stored = Cookies.get('craftIDs');
     if (stored) {
       try {
-        setCraftIDs(JSON.parse(stored));
+        const parsed = setCraftIDs(JSON.parse(stored));
+        setCraftIDs(parsed);
+        return;
       } catch (e) {
         console.error('Invalid cookie data:', e);
-        setCraftIDs(defaultJsonObj);
-        Cookies.set('craftIDs', JSON.stringify(defaultJsonObj), { expires: 7 });
       }
     } else {
-      Cookies.set('craftIDs', JSON.stringify(defaultJsonObj), { expires: 7 });
-      setCraftIDs(defaultJsonObj);
+        fetch('/items')
+         .then(res => {
+          if (!res.ok) throw new Error('Item fetch failed');
+          return res.json();
+          })
+         .then((data) => {
+        setCraftIDs(data);
+        Cookies.set('craftIDs', JSON.stringify(data), { expires: 7 });
+         })
+         .catch(err => {
+          console.error('items API failed, using default:', err);
+         })
     }
   }, []);
 

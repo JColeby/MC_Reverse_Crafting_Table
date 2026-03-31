@@ -6,6 +6,10 @@ export function SearchPage({ craftIDs }) {
   const [itemID, setItemID] = useState(0);
   const [quantity, setQuantity] = useState(0);
 
+  if (!craftIDs || typeof craftIDs !== 'object') {
+  return <div className="App-form">Loading items...</div>;  
+};
+
   function handleAdd() {
     if (requestedItems.length >= 10) {
       setLargeLoad("Only 10 items may be requested");
