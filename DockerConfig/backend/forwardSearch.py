@@ -12,30 +12,37 @@ def main(request: List[ItemCount], cursor) -> RecipeSearchList:
                     the second parameter
     :return RecipeSearchList: returns a list of all the recipes you can craft using given items
     """
-    recipe_set: set[RecipeSearch] = set()
+    recipe_list: List[FullRecipeSearch] = list()
 
     for curr_item in request:
         query_response: List[RecipeSearch] = get_recipeSearch_from_itemID(curr_item.itemid, cursor)
         for curr_recipe in query_response:
-            if can_craft_recipe(request, curr_recipe) == True:
-                recipe_set.add(curr_recipe)
-
-    full_recipes: list[RecipeSearch] = [recipe for recipe in recipe_set]
-    return FullRecipeList(recipes=full_recipes)
+            if not recipe_list or curr_recipe.recipeid not in [recipe.recipe.recipeid for recipe in recipe_list]:
+                new_rec = Recipe(
+                    recipeid = curr_recipe.recipeid,
+                    itemid = curr_recipe.recipeitemid,
+                    recipetype = curr_recipe.recipetype,
+                    pattern = curr_recipe.pattern
+                )
+                new_ing = make_ingredient(curr_recipe)
+                new_full_rec = FullRecipeSearch(
+                    recipe = new_rec,
+                    ingredients = [new_ing]               
+                )
+                recipe_list.append(new_full_rec)
+            else:
+                for recipe in recipe_list:
+                    if recipe.recipe.itemid == curr_recipe.recipeitemid:
+                        add_ing = make_ingredient(curr_recipe)
+                        recipe.ingredients.append(add_ing)
+                    
+    return RecipeSearchList(recipes=recipe_list)
 
 # =========={ Helpers }==========
 
-def can_craft_recipe(provided_items: ItemCountList, recipe: FullRecipe) -> bool:
-    """
-    :param provided_items: List of ItemCounts that we can craft with
-    :param recipe: The recipe we are testing against
-    :return: True or False depending on if the items provided can craft said recipe
-    """
-    for curr_req_item in recipe.ingredients:
-        match = next(
-            (item for item in provided_items.itemlist if item.itemid == curr_req_item.itemid),
-            None
-        )
-        if match is None or match.itemquantity < curr_req_item.itemquantity:
-            return False
-    return True
+def make_ingredient(provided_recipe: RecipeSearch) -> RecipeSearchIngredient:
+    new_ing = RecipeSearchIngredient(
+        itemid = provided_recipe.ingredientitemid,
+        patternkey = provided_recipe.patternkey   
+    )
+    return new_ing

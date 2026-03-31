@@ -18,7 +18,7 @@ class ItemCountList(BaseModel):
 class Recipe(BaseModel):
     recipeid: int
     recipetype: str
-    resultquantity: int
+    resultquantity: Optional[int] = None
     pattern: Optional[str] = None
     itemid: int
 
@@ -34,6 +34,10 @@ class Ingredient(BaseModel):
     itemid: int
     itemquantity: int
     patternkey: Optional[str] = None
+    
+class RecipeSearchIngredient(BaseModel):
+    itemid: int
+    patternkey: Optional[str] = None
 
 
 class RecipeSearch(BaseModel):
@@ -44,6 +48,11 @@ class RecipeSearch(BaseModel):
     pattern: Optional[str] = None
     patternkey: Optional[str] = None
 
+    def __eq__(self, other):
+        return isinstance(other, RecipeSearch) and self.recipeid == other.recipeid
+    
+    def __hash__(self):
+        return hash(self.recipeid)
 
 # =========={ backend response objects }==========
 
@@ -57,6 +66,10 @@ class FullRecipe(BaseModel):
 
     def __hash__(self):
         return hash(self.recipe)
+    
+class FullRecipeSearch(BaseModel):
+    recipe: Recipe
+    ingredients: List[RecipeSearchIngredient]
 
 
 class FullRecipeList(BaseModel):
@@ -65,5 +78,5 @@ class FullRecipeList(BaseModel):
 
 
 class RecipeSearchList(BaseModel):
-    recipies: List[RecipeSearch]
+    recipes: List[FullRecipeSearch]
 
