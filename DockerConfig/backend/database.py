@@ -46,7 +46,7 @@ def close_db():
 
 
 def get_all_items(cursor) -> dict:
-    cursor.execute("SELECT * FROM item")
+    cursor.execute("SELECT * FROM ITEM")
     rows = cursor.fetchall()
     item_dictionary = {}
     for row in rows:
