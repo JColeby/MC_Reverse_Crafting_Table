@@ -17,7 +17,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 
-@app.get("/")
+@app.get("/items")
 async def get_item_dictionary() -> dict:
     with database.get_cursor() as cursor:
         return database.get_all_items(cursor)
