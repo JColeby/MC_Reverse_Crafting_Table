@@ -10,8 +10,6 @@ const defaultJsonObj = {
   "basic object": 1,
 };
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
-
 function App() {
   const [craftIDs, setCraftIDs] = useState(defaultJsonObj);
 
@@ -26,7 +24,7 @@ function App() {
         console.error('Invalid cookie data:', e);
       }
     } else {
-        fetch(`${API_URL}/items`)
+        fetch(`http://localhost:8000/items`)
          .then(res => {
           if (!res.ok) throw new Error('Item fetch failed');
           return res.json();

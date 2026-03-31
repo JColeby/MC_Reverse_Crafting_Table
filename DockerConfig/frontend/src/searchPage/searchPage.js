@@ -101,7 +101,7 @@ export function SearchPage({ craftIDs }) {
 
       <button type="submit" onClick={handleReverseSearch}> Find raw materials </button>
 
-      <p>
+      <div>
         {largeLoad && <strong>{largeLoad}</strong>}
         <br />
         Requested Items ({requestedItems.length}/10):
@@ -111,7 +111,7 @@ export function SearchPage({ craftIDs }) {
             Item: {item.itemname} Quantity: {item.ingredientquantity}
           </div>
         ))}
-      </p>
+      </div>
     </form>
   );
 }
