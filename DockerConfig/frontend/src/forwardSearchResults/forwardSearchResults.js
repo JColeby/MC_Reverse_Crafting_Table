@@ -30,24 +30,15 @@ export function ForwardSearchResults() {
       <h2>Forward Search Results</h2>
 
       {data?.recipes?.map((r, i) => (
-        <div key={i} style={{ margin: 20, padding: 10, border: "1px solid #ccc", backgroundColor: "#C6C6C6" }}>
-          <h3>{getName(r.recipe.itemid)}</h3>
-          <p>{r.recipe.recipetype}</p>
-
-          <ul>
-            {r.ingredients.map((ing, j) => (
-              <li key={j}>
-                {getName(ing.itemid)} × {ing.itemquantity}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )) || "Loading..."}
+        <RecipeCard key={i} recipe={r} getName={getName} />
+        )) || "Loading..."}
       <div className="App-form">
       <h3>Raw Materials</h3>
       <ul>
-        {data?.recipes?.map((r, i) => (
-            <RecipeCard key={i} recipe={r} getName={getName} />
+        {data?.itemlist?.map((item, i) => (
+          <li key={i}>
+            {getName(item.itemid)} × {item.itemquantity}
+          </li>
         )) || "Loading..."}
       </ul>
       </div>
