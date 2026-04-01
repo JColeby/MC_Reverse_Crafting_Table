@@ -1,48 +1,56 @@
-from database import *
+from typing import List, Dict, Set
+
+from Objects import ItemCount, RecipeSearch, Recipe, RecipeSearchIngredient, FullRecipeSearch, RecipeSearchList
+import database
 
 
 def main(request: List[ItemCount], cursor) -> RecipeSearchList:
     """
     Entry point for the forward search algorithm.
-    Takes a list of items and returns all the recipes you can make using them
-    It does not recursively search - it only finds recipes that you can make currently
-    
-    :param request: This is a list of objects containing an item ID and their count
-    :param cursor: This is needed whenever you call a database function, pass it in as
-                    the second parameter
-    :return RecipeSearchList: returns a list of all the recipes you can craft using given items
+    Takes a list of items and returns all the recipes you can make using them.
+    It does not recursively search - it only finds recipes that you can make currently.
+
+    :param request: List of objects containing item ID and their count
+    :param cursor: DB cursor needed for calling database functions
+    :return: List of all recipes you can craft using given items (RecipeSearchList)
     """
-    recipe_list: List[FullRecipeSearch] = list()
+    recipe_dict: Dict[int, FullRecipeSearch] = {}
+
+    # collect all recipe IDs that use any of the requested items
+    recipes_to_consider: Set[int] = set()
 
     for curr_item in request:
-        query_response: List[RecipeSearch] = get_recipeSearch_from_itemID(curr_item.itemid, cursor)
+        query_response: List[RecipeSearch] = database.get_recipeSearch_from_itemID(
+            curr_item.itemid, cursor
+        )
         for curr_recipe in query_response:
-            if not recipe_list or curr_recipe.recipeid not in [recipe.recipe.recipeid for recipe in recipe_list]:
-                new_rec = Recipe(
-                    recipeid = curr_recipe.recipeid,
-                    itemid = curr_recipe.recipeitemid,
-                    recipetype = curr_recipe.recipetype,
-                    pattern = curr_recipe.pattern
-                )
-                new_ing = make_ingredient(curr_recipe)
-                new_full_rec = FullRecipeSearch(
-                    recipe = new_rec,
-                    ingredients = [new_ing]               
-                )
-                recipe_list.append(new_full_rec)
-            else:
-                for recipe in recipe_list:
-                    if recipe.recipe.itemid == curr_recipe.recipeitemid:
-                        add_ing = make_ingredient(curr_recipe)
-                        recipe.ingredients.append(add_ing)
-                    
-    return RecipeSearchList(recipes=recipe_list)
+            recipes_to_consider.add(curr_recipe.recipeid)
 
-# =========={ Helpers }==========
+    # for each recipe that uses any of those items, build it once with ALL ingredients
+    for recipe_id in recipes_to_consider:
+        recipe_from_db = database.get_recipe_from_recipeID(recipe_id, cursor)[0]
 
-def make_ingredient(provided_recipe: RecipeSearch) -> RecipeSearchIngredient:
-    new_ing = RecipeSearchIngredient(
-        itemid = provided_recipe.ingredientitemid,
-        patternkey = provided_recipe.patternkey   
-    )
-    return new_ing
+        new_rec = Recipe(
+            recipeid=recipe_id,
+            recipetype=recipe_from_db.recipetype,
+            resultquantity=recipe_from_db.resultquantity,
+            pattern=recipe_from_db.pattern,
+            itemid=recipe_from_db.itemid,
+        )
+
+        # get all ingredients for this recipe (as `Ingredient` rows)
+        all_ing_rows = database.get_ingredient_from_recipeID(recipe_id, cursor)
+
+        # convert `Ingredient` → `RecipeSearchIngredient` for the response
+        all_search_ings = [
+            RecipeSearchIngredient(itemid=ing.itemid, patternkey=ing.patternkey)
+            for ing in all_ing_rows
+        ]
+
+        new_full_rec = FullRecipeSearch(
+            recipe=new_rec,
+            ingredients=all_search_ings,
+        )
+        recipe_dict[recipe_id] = new_full_rec
+
+    return RecipeSearchList(recipes=list(recipe_dict.values()))
