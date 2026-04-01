@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { RecipeCard } from "../commonFunctions/commonFunctions";
 
 export function ForwardSearchResults() {
   const { state } = useLocation();

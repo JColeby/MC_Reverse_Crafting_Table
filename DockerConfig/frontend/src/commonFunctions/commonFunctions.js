@@ -1,4 +1,4 @@
-function RecipeCard({ recipe, getName }) {
+export function RecipeCard({ recipe, getName }) {
   const { recipe: r, ingredients } = recipe;
 
   const keyToName = {};
