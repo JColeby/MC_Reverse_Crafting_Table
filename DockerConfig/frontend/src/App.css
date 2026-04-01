@@ -65,6 +65,6 @@
 .recipe-grid { display: grid; grid-template-columns: repeat(3, 40px); gap: 2px; }
 .grid-row { display: contents; }
 .cell { height: 40px; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; }
-.cell.item { background: #4CAF50; color: white; }
+.cell.item { background: #8B8B8B8B; color: white; }
 .cell.empty { background: white; }
 .recipe-card { margin: 20px; padding: 10px; border: 1px solid #ccc; }
