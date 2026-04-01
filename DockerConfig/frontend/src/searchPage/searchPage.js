@@ -58,6 +58,12 @@ export function SearchPage({ craftIDs }) {
   function handleReverseSearch(e) {
     e.preventDefault();
     console.log("Reverse search with:", requestedItems);
+    const apiData = requestedItems.map(({ itemid, ingredientquantity }) => ({
+      itemid,
+      itemquantity: ingredientquantity,
+    }));
+    console.log("Crafting with:", apiData);
+    navigate("/rsr", { state: { apiData, craftIDs } });
   }
 
   return (

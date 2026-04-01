@@ -9,18 +9,29 @@ export function ReverseSearchResults() {
   const [data, setData] = useState();
 
   // combine name lookup + formatting into one function
-  const getName = (id) =>
-    craftIDs?.[id]
-      ?.replace(/_/g, " ")
-      .replace(/\b\w/g, c => c.toUpperCase()) || `Item ${id}`;
+  function getName(id) {
+    // craftIDs?.[id]
+    //   ?.replace(/_/g, " ")
+    //   .replace(/\b\w/g, c => c.toUpperCase()) || `Item ${id}`;
+    const selectedName = craftIDs.find(
+      ([key, value]) => value === Number(id)
+    )?.[0]?.split("minecraft:")[1] || "Unknown";
+
+    // Make name human readable
+    const readableName = selectedName
+      .split("_")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+      return readableName;
+    };
 
   useEffect(() => {
     if (!sendToApi?.length) return;
 
-    fetch("/api/recipes", {
+    fetch("http://localhost:8000/reverseSearch/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ItemList: sendToApi })
+      body: JSON.stringify({ itemlist: sendToApi })
     })
       .then(res => res.json())
       .then(setData)
@@ -29,10 +40,10 @@ export function ReverseSearchResults() {
 
   return (
     <div>
-      <h2>Reverse Search Results</h2>
+      <h2 className="App-form">Reverse Search Results</h2>
 
       {data?.recipes?.map((r, i) => (
-        <div key={i} style={{ margin: 20, padding: 10, border: "1px solid #ccc" }}>
+        <div key={i} style={{ margin: 20, padding: 10, border: "1px solid #ccc", backgroundColor: "#C6C6C6" }}>
           <h3>{getName(r.recipe.itemid)}</h3>
           <p>{r.recipe.recipetype}</p>
 
@@ -45,7 +56,7 @@ export function ReverseSearchResults() {
           </ul>
         </div>
       )) || "Loading..."}
-
+      <div className="App-form">
       <h3>Raw Materials</h3>
       <ul>
         {data?.itemlist?.map((item, i) => (
@@ -54,6 +65,7 @@ export function ReverseSearchResults() {
           </li>
         )) || "Loading..."}
       </ul>
+      </div>
     </div>
   );
 }

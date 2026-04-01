@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-export function ReverseSearchResults() {
+export function ForwardSearchResults() {
   const { state } = useLocation();
   const sendToApi = state?.apiData;
   const craftIDs = state?.craftIDs;
@@ -15,10 +15,10 @@ export function ReverseSearchResults() {
   useEffect(() => {
     if (!sendToApi?.length) return;
 
-    fetch("/api/recipes", {
+    fetch("http://localhost:8000/forwardSearch/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ItemList: sendToApi })
+      body: JSON.stringify({ itemlist: sendToApi })
     })
       .then(res => res.json())
       .then(setData)
@@ -27,10 +27,10 @@ export function ReverseSearchResults() {
 
   return (
     <div>
-      <h2>Reverse Search Results</h2>
+      <h2>Forward Search Results</h2>
 
       {data?.recipes?.map((r, i) => (
-        <div key={i} style={{ margin: 20, padding: 10, border: "1px solid #ccc" }}>
+        <div key={i} style={{ margin: 20, padding: 10, border: "1px solid #ccc", backgroundColor: "#C6C6C6" }}>
           <h3>{getName(r.recipe.itemid)}</h3>
           <p>{r.recipe.recipetype}</p>
 
@@ -43,7 +43,7 @@ export function ReverseSearchResults() {
           </ul>
         </div>
       )) || "Loading..."}
-
+      <div className="App-form">
       <h3>Raw Materials</h3>
       <ul>
         {data?.itemlist?.map((item, i) => (
@@ -52,6 +52,7 @@ export function ReverseSearchResults() {
           </li>
         )) || "Loading..."}
       </ul>
+      </div>
     </div>
   );
 }
