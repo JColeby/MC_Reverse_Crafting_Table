@@ -8,10 +8,19 @@ export function ForwardSearchResults() {
   const craftIDs = state?.craftIDs;
 
   const [data, setData] = useState();
-  const getName = (id) =>
-    craftIDs?.[id]
-      ?.replace(/_/g, " ")
-      .replace(/\b\w/g, c => c.toUpperCase()) || `Item ${id}`;
+  
+  function getName(id) {
+    const selectedName = Object.entries(craftIDs).find(
+      ([key, value]) => value === Number(id)
+    )?.[0]?.split("minecraft:")[1] || "Unknown";
+
+    // Make name human readable
+    const readableName = selectedName
+      .split("_")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+      return readableName;
+    };
 
   useEffect(() => {
     if (!sendToApi?.length) return;
@@ -28,21 +37,10 @@ export function ForwardSearchResults() {
 
   return (
     <div>
-      <h2>Forward Search Results</h2>
-
+      <h2 className="App-form">Forward Search Results</h2>
       {data?.recipes?.map((r, i) => (
         <RecipeCard key={i} recipe={r} getName={getName} />
         )) || "Loading..."}
-      <div className="App-form">
-      <h3>Raw Materials</h3>
-      <ul>
-        {data?.itemlist?.map((item, i) => (
-          <li key={i}>
-            {getName(item.itemid)} × {item.itemquantity}
-          </li>
-        )) || "Loading..."}
-      </ul>
-      </div>
     </div>
   );
 }

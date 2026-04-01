@@ -52,7 +52,7 @@ export function SearchPage({ craftIDs }) {
       itemquantity: ingredientquantity,
     }));
     console.log("Crafting with:", apiData);
-    navigate("/fsr", { state: { apiData } });
+    navigate("/fsr", { state: { apiData, craftIDs } });
   }
 
   function handleReverseSearch(e) {

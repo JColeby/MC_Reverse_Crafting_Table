@@ -11,10 +11,7 @@ export function ReverseSearchResults() {
 
   // combine name lookup + formatting into one function
   function getName(id) {
-    // craftIDs?.[id]
-    //   ?.replace(/_/g, " ")
-    //   .replace(/\b\w/g, c => c.toUpperCase()) || `Item ${id}`;
-    const selectedName = craftIDs.find(
+    const selectedName = Object.entries(craftIDs).find(
       ([key, value]) => value === Number(id)
     )?.[0]?.split("minecraft:")[1] || "Unknown";
 
@@ -57,8 +54,8 @@ export function ReverseSearchResults() {
           </ul>
         </div>
       )) || "Loading..."}
-      <div className="App-form">
-      <h3>Raw Materials</h3>
+      <div>
+      <h3 className="App-form">Raw Materials</h3>
       <ul>
         {data?.recipes?.map((r, i) => (
             <RecipeCard key={i} recipe={r} getName={getName} />

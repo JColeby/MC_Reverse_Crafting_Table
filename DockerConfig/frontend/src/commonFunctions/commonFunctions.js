@@ -16,7 +16,7 @@ export function RecipeCard({ recipe, getName }) {
           {r.pattern.split("").map((char, i) => (
             <div key={i} title={keyToName[char] || ""} style={{
               width: 50, height: 50,
-              background: char === " " ? "#eee" : "#c8a96e",
+              background: "#8b8b8b",
               border: "1px solid #999",
               display: "flex", alignItems: "center", justifyContent: "center",
               fontSize: 11, textAlign: "center"
