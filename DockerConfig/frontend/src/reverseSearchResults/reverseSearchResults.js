@@ -2,71 +2,58 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export function ReverseSearchResults() {
-  const location = useLocation();
-  const sendToApi = location.state?.apiData;
+  const { state } = useLocation();
+  const sendToApi = state?.apiData;
+  const craftIDs = state?.craftIDs;
 
-  const [apiResponseData, setApiRD] = useState();
+  const [data, setData] = useState();
+
+  // combine name lookup + formatting into one function
+  const getName = (id) =>
+    craftIDs?.[id]
+      ?.replace(/_/g, " ")
+      .replace(/\b\w/g, c => c.toUpperCase()) || `Item ${id}`;
 
   useEffect(() => {
-    async function loadAPI() {
-      if (!sendToApi?.length) return;
+    if (!sendToApi?.length) return;
 
-      try {
-        const response = await fetch("/api/recipes", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ItemList: sendToApi.map(i => ({
-              ItemID: i.ItemID,
-              ItemQuanity: i.ItemQuanity
-            }))
-          })
-        });
-
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-        const data = await response.json();
-        setApiRD(data);
-
-      } catch (error) {
-        console.error("API failed:", error);
-      }
-    }
-
-    loadAPI();
+    fetch("/api/recipes", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ItemList: sendToApi })
+    })
+      .then(res => res.json())
+      .then(setData)
+      .catch(console.error);
   }, [sendToApi]);
 
   return (
     <div>
-      {apiResponseData?.recipes?.map((recipe, i) => (
-        <div
-          key={i}
-          style={{
-            margin: "20px",
-            padding: "10px",
-            border: "1px solid #ccc"
-          }}
-        >
-          <h3>Recipe ID: {recipe.recipe.recipeid}</h3>
-          <p>Type: {recipe.recipe.recipetype}</p>
+      <h2>Reverse Search Results</h2>
 
-          <h4>Ingredients:</h4>
+      {data?.recipes?.map((r, i) => (
+        <div key={i} style={{ margin: 20, padding: 10, border: "1px solid #ccc" }}>
+          <h3>{getName(r.recipe.itemid)}</h3>
+          <p>{r.recipe.recipetype}</p>
+
           <ul>
-            {recipe.ingredients.map((ing, j) => (
+            {r.ingredients.map((ing, j) => (
               <li key={j}>
-                Item {ing.itemid} × {ing.itemquantity}
+                {getName(ing.itemid)} × {ing.itemquantity}
               </li>
             ))}
           </ul>
         </div>
       )) || "Loading..."}
-      
-      <h2>Raw Materials</h2>
-      <pre>
-        {apiResponseData?.itemlist
-          ? JSON.stringify(apiResponseData.itemlist, null, 2)
-          : ""}
-      </pre>
+
+      <h3>Raw Materials</h3>
+      <ul>
+        {data?.itemlist?.map((item, i) => (
+          <li key={i}>
+            {getName(item.itemid)} × {item.itemquantity}
+          </li>
+        )) || "Loading..."}
+      </ul>
     </div>
   );
 }
