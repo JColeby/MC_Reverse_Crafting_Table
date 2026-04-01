@@ -7,7 +7,7 @@ function RecipeCard({ recipe, getName }) {
   });
 
   return (
-    <div style={{ margin: 20, padding: 10, border: "1px solid #ccc" }}>
+    <div style={{ margin: 20, padding: 10, border: "1px solid #8b8b8b", backgroundColor: "#c6c6c6" }}>
       <h3>{getName(r.itemid)}</h3>
       <p>{r.recipetype}</p>
 
