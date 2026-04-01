@@ -47,11 +47,11 @@ export function SearchPage({ craftIDs }) {
   function handleCraft(e) {
     e.preventDefault();
     // Send to API or navigate with requestedItems
-    console.log("Crafting with:", requestedItems);
     const apiData = requestedItems.map(({ itemid, ingredientquantity }) => ({
       itemid,
-      ingredientquantity,
+      itemquantity: ingredientquantity,
     }));
+    console.log("Crafting with:", apiData);
     navigate("/fsr", { state: { apiData } });
   }
 

@@ -15,7 +15,7 @@ async def lifespan(app: FastAPI):
     database.close_db()  # runs on shutdown
 
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(lifespan=lifespan, strict_content_parsing=False)
 
 app.add_middleware(
     CORSMiddleware,
