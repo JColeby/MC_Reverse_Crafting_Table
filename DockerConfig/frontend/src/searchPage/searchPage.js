@@ -2,67 +2,54 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function SearchPage({ craftIDs }) {
-  const [requestedItems, setRequestedItems] = useState([]);
+  const [rows, setRows] = useState([{ itemID: "", quantity: "" }]);
   const [largeLoad, setLargeLoad] = useState("");
-  const [itemID, setItemID] = useState(0);
-  const [quantity, setQuantity] = useState(0);
   const navigate = useNavigate();
 
-  if (!craftIDs || typeof craftIDs !== 'object') {
-  return <div className="App-form">Loading items...</div>;  
-};
+  if (!craftIDs || typeof craftIDs !== "object") {
+    return <div className="App-form">Loading items...</div>;
+  }
 
-  function handleAdd() {
-    if (requestedItems.length >= 10) {
+  function handleAddRow() {
+    if (rows.length >= 10) {
       setLargeLoad("Only 10 items may be requested");
       return;
     }
-
-    // Find name from craftIDs using selected ID
-    const selectedName = Object.entries(craftIDs).find(
-      ([key, value]) => value === Number(itemID)
-    )?.[0]?.split("minecraft:")[1] || "Unknown";
-
-    // Make name human readable
-    const readableName = selectedName
-      .split("_")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-
     setLargeLoad("");
-    setRequestedItems((prev) => [
-      ...prev,
-      {
-        itemid: Number(itemID),              
-        itemname: readableName,      
-        ingredientquantity: Number(quantity),
-      },
-    ]);
+    setRows((prev) => [...prev, { itemID: "", quantity: "" }]);
+  }
 
-    // Reset form
-    setItemID("");
-    setQuantity("");
+  function handleRowChange(index, field, value) {
+    setRows((prev) =>
+      prev.map((row, i) => (i === index ? { ...row, [field]: value } : row))
+    );
+  }
+
+  function handleRemoveRow(index) {
+    if (rows.length === 1) return; // always keep at least one row
+    setRows((prev) => prev.filter((_, i) => i !== index));
+  }
+
+  function buildApiData() {
+    return rows
+      .filter((row) => row.itemID !== "" && row.quantity !== "")
+      .map((row) => ({
+        itemid: Number(row.itemID),
+        itemquantity: Number(row.quantity),
+      }));
   }
 
   function handleCraft(e) {
     e.preventDefault();
-    // Send to API or navigate with requestedItems
-    const apiData = requestedItems.map(({ itemid, ingredientquantity }) => ({
-      itemid,
-      itemquantity: ingredientquantity,
-    }));
-    console.log("Crafting with:", apiData);
+    const apiData = buildApiData();
+    if (apiData.length === 0) return;
     navigate("/fsr", { state: { apiData, craftIDs } });
   }
 
   function handleReverseSearch(e) {
     e.preventDefault();
-    console.log("Reverse search with:", requestedItems);
-    const apiData = requestedItems.map(({ itemid, ingredientquantity }) => ({
-      itemid,
-      itemquantity: ingredientquantity,
-    }));
-    console.log("Crafting with:", apiData);
+    const apiData = buildApiData();
+    if (apiData.length === 0) return;
     navigate("/rsr", { state: { apiData, craftIDs } });
   }
 
@@ -70,55 +57,63 @@ export function SearchPage({ craftIDs }) {
     <form className="App-form">
 
       <div className="form-labels">
-      <label htmlFor="itemIDs" >Items</label>
-      <label htmlFor="quantity">#</label>
+        <label>Items</label>
+        <label>#</label>
       </div>
 
-      <div className="form-inputs-row">
-      <select id="itemIDs" name="itemIDs" value={itemID}
-        onChange={(e) => setItemID(e.target.value)}>
+      {rows.map((row, index) => (
+        <div key={index} className="form-inputs-row">
+          <select
+            value={row.itemID}
+            onChange={(e) => handleRowChange(index, "itemID", e.target.value)}
+          >
+            <option value="">Select an item</option>
+            {Object.entries(craftIDs).map(([key, value]) => {
+              const rawName = key.split("minecraft:")[1] || key;
+              const readableName = rawName
+                .split("_")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
+              return (
+                <option key={key} value={value}>
+                  {readableName}
+                </option>
+              );
+            })}
+          </select>
 
-        <option value="">Select an item</option>
-        {Object.entries(craftIDs).map(([key, value]) => { // Makes dropdown that is human readable
-          const rawName = key.split("minecraft:")[1] || key;
-          const readableName = rawName
-            .split("_")
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(" ");
+          <input
+            className="App-quantity"
+            type="number"
+            value={row.quantity}
+            onChange={(e) => handleRowChange(index, "quantity", e.target.value)}
+            min="1"
+          />
 
-          return (
-            <option key={key} value={value}>
-              {readableName}
-            </option>
-          );
-        })}
-      </select>
+          {rows.length > 1 && (
+            <button type="button" onClick={() => handleRemoveRow(index)}>
+              ✕
+            </button>
+          )}
+        </div>
+      ))}
 
-      
-      <input
-        className="App-quantity" type="number" id="quantity" name="quantity" value={quantity}
-        onChange={(e) => setQuantity(e.target.value)} min="1"
-      />
-      </div>
       <br />
 
-      <button type="button" onClick={handleAdd}> Add item </button>
+      {largeLoad && <strong>{largeLoad}</strong>}
 
-      <button type="submit" onClick={handleCraft}> What can I craft? </button>
+      <button type="button" onClick={handleAddRow}>
+        Add item
+      </button>
 
-      <button type="submit" onClick={handleReverseSearch}> Find raw materials </button>
+      <button type="submit" onClick={handleCraft}>
+        What can I craft?
+      </button>
 
-      <div>
-        {largeLoad && <strong>{largeLoad}</strong>}
-        <br />
-        Requested Items ({requestedItems.length}/10):
-        <br />
-        {requestedItems.map((item, index) => (
-          <div key={index}>
-            Item: {item.itemname} Quantity: {item.ingredientquantity}
-          </div>
-        ))}
-      </div>
+      <button type="submit" onClick={handleReverseSearch}>
+        Find raw materials
+      </button>
+
     </form>
   );
 }
