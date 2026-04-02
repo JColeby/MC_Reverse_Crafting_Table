@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { RecipeCard } from "../commonFunctions/commonFunctions";
 
@@ -7,6 +7,7 @@ export function ForwardSearchResults() {
   const { state } = location;
   const sendToApi = state?.apiData;
   const craftIDs = state?.craftIDs;
+  const navigate = useNavigate();
 
   const [data, setData] = useState();
   
@@ -41,6 +42,7 @@ export function ForwardSearchResults() {
   return (
     <div>
       <h2 className="App-form">Forward Search Results</h2>
+      <button onClick={() => navigate('/searchPage')}>Make a new search</button>
       {data?.recipes?.map((r, i) => (
         <RecipeCard key={i} recipe={r} getName={getName} craftIDs={craftIDs} />
         )) || "Loading..."}

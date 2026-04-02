@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { RecipeCard } from "../commonFunctions/commonFunctions";
 
@@ -18,6 +18,7 @@ export function ReverseSearchResults() {
   const { state } = location;
   const sendToApi = state?.apiData;
   const craftIDs = state?.craftIDs;
+  const navigate = useNavigate();
 
   const [data, setData] = useState();
 
@@ -51,6 +52,7 @@ export function ReverseSearchResults() {
   return (
     <div style={{ maxWidth: 640, margin: "0 auto" }}>
       <h2 className="App-form">Reverse Search Results</h2>
+      <button onClick={() => navigate('/searchPage')}>Make a new search</button>
       <h3 className="App-form">Raw Materials</h3>
       {data?.recipes?.map((r, i) => (
         <div key={i} style={ cardStyle }>
