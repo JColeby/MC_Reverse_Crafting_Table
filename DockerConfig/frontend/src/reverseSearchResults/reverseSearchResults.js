@@ -2,8 +2,20 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { RecipeCard } from "../commonFunctions/commonFunctions";
 
+const cardStyle = {
+  margin: "20px auto",
+  padding: 10,
+  border: "1px solid #8b8b8b",
+  backgroundColor: "#c6c6c6",
+  display: "flex",
+  flexDirection: "column",
+  gap: 12,
+  maxWidth: 600,
+};
+
 export function ReverseSearchResults() {
-  const { state } = useLocation();
+  const location = useLocation();
+  const { state } = location;
   const sendToApi = state?.apiData;
   const craftIDs = state?.craftIDs;
 
@@ -24,7 +36,7 @@ export function ReverseSearchResults() {
     };
 
   useEffect(() => {
-    if (!sendToApi?.length) return;
+    if (!Array.isArray(sendToApi) || sendToApi.length === 0) return;
 
     fetch("http://localhost:8000/reverseSearch/", {
       method: "POST",
@@ -34,18 +46,19 @@ export function ReverseSearchResults() {
       .then(res => res.json())
       .then(setData)
       .catch(console.error);
-  }, [sendToApi]);
+  }, [sendToApi, location]);
 
   return (
-    <div>
+    <div style={{ maxWidth: 640, margin: "0 auto" }}>
       <h2 className="App-form">Reverse Search Results</h2>
-
+      <h3 className="App-form">Raw Materials</h3>
       {data?.recipes?.map((r, i) => (
-        <div key={i} style={{ margin: 20, padding: 10, border: "1px solid #ccc", backgroundColor: "#C6C6C6" }}>
-          <h3>{getName(r.recipe.itemid)}</h3>
-          <p>{r.recipe.recipetype}</p>
-
-          <ul>
+        <div key={i} style={ cardStyle }>
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            <h3 style={{ margin: 0 }}>{getName(r.recipe.itemid)}</h3>
+            <p style={{ margin: 0 }}>{r.recipe.recipetype}</p>
+          </div>
+          <ul style={{ margin: 0, padding: "0 0 0 16px" }}>
             {r.ingredients.map((ing, j) => (
               <li key={j}>
                 {getName(ing.itemid)} × {ing.itemquantity}
@@ -55,7 +68,7 @@ export function ReverseSearchResults() {
         </div>
       )) || "Loading..."}
       <div>
-      <h3 className="App-form">Raw Materials</h3>
+      <h3 className="App-form">Recipes</h3>
       <ul>
         {data?.recipes?.map((r, i) => (
             <RecipeCard key={i} recipe={r} getName={getName} craftIDs={craftIDs}/>
