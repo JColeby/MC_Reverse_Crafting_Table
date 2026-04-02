@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { RecipeCard } from "../commonFunctions/commonFunctions";
 
 export function ForwardSearchResults() {
-  const { state } = useLocation();
+  const location = useLocation();
+  const { state } = location;
   const sendToApi = state?.apiData;
   const craftIDs = state?.craftIDs;
 
@@ -23,7 +24,9 @@ export function ForwardSearchResults() {
     };
 
   useEffect(() => {
-    if (!state || !sendToApi?.length) return;
+    if (!Array.isArray(sendToApi) || sendToApi.length === 0) return;
+
+    setData(undefined);
 
     fetch("http://localhost:8000/forwardSearch/", {
       method: "POST",
@@ -33,7 +36,7 @@ export function ForwardSearchResults() {
       .then(res => res.json())
       .then(setData)
       .catch(console.error);
-  }, [state, sendToApi]);
+  }, [location, sendToApi]);
 
   return (
     <div>
