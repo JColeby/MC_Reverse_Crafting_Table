@@ -10,8 +10,8 @@ export function RecipeCard({ recipe, getName, craftIDs }) {
   });
 
   return (
-    <div style={{ margin: 20, padding: 10, border: "1px solid #8b8b8b", 
-    backgroundColor: "#c6c6c6", display:"flex", flexDirection: "column", gap: 12 }}>
+    <div style={{ margin: "20px auto", padding: 10, border: "1px solid #8b8b8b", 
+    backgroundColor: "#c6c6c6", display:"flex", flexDirection: "column", gap: 12, maxWidth: 600 }}>
       <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
 
         <h3 style={{ margin: 0 }}>{getName(r.itemid)}</h3>
@@ -44,7 +44,12 @@ export function RecipeCard({ recipe, getName, craftIDs }) {
         ))}
       </ul>
       
-      <button onClick={() => r?.itemid != null && navigate("/fsr", { replace:true, state: { apiData: { itemid: r.itemid, itemquantity: 1  }, craftIDs} })}> Find raw materials </button>
+      <button
+          onClick={() => {
+            if (r?.itemid != null) {
+              navigate("/rsr", {
+                state: { apiData: [{ itemid: r.itemid, itemquantity: 1 }], craftIDs }
+              });}}}> Find raw materials </button>
     </div>
     </div>
   );
