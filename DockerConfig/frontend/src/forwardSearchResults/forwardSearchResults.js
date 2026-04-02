@@ -23,7 +23,7 @@ export function ForwardSearchResults() {
     };
 
   useEffect(() => {
-    if (!sendToApi?.length) return;
+    if (!state || !sendToApi?.length) return;
 
     fetch("http://localhost:8000/forwardSearch/", {
       method: "POST",
@@ -33,13 +33,13 @@ export function ForwardSearchResults() {
       .then(res => res.json())
       .then(setData)
       .catch(console.error);
-  }, [sendToApi]);
+  }, [state, sendToApi]);
 
   return (
     <div>
       <h2 className="App-form">Forward Search Results</h2>
       {data?.recipes?.map((r, i) => (
-        <RecipeCard key={i} recipe={r} getName={getName} />
+        <RecipeCard key={i} recipe={r} getName={getName} craftIDs={craftIDs} />
         )) || "Loading..."}
     </div>
   );

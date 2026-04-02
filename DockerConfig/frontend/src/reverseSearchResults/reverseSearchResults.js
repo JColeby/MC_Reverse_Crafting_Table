@@ -58,7 +58,7 @@ export function ReverseSearchResults() {
       <h3 className="App-form">Raw Materials</h3>
       <ul>
         {data?.recipes?.map((r, i) => (
-            <RecipeCard key={i} recipe={r} getName={getName} />
+            <RecipeCard key={i} recipe={r} getName={getName} craftIDs={craftIDs}/>
         )) || "Loading..."}
       </ul>
       </div>
