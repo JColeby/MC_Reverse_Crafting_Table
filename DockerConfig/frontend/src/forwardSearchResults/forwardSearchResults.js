@@ -2,6 +2,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { RecipeCard } from "../commonFunctions/commonFunctions";
 
+/* This is the function that will display all recipes that the items the user
+   requested are used in. There is a return to search button and each recipe card
+   will allow you to reverseSearch it to find the raw materials that you need to
+   make that specific recipes\ */
 export function ForwardSearchResults() {
   const location = useLocation();
   const { state } = location;
@@ -11,6 +15,7 @@ export function ForwardSearchResults() {
 
   const [data, setData] = useState();
   
+  // Grabs the name of the item and makes it human readable
   function getName(id) {
     const selectedName = Object.entries(craftIDs).find(
       ([key, value]) => value === Number(id)
@@ -24,6 +29,8 @@ export function ForwardSearchResults() {
       return readableName;
     };
 
+  /* Checks if the API data is formatted correctly. If it
+     is, then we send the data to the /forwardSearch/ API */
   useEffect(() => {
     if (!Array.isArray(sendToApi) || sendToApi.length === 0) return;
 

@@ -13,6 +13,8 @@ const cardStyle = {
   maxWidth: 600,
 };
 
+/* This function displays every recipe of every item that the items the user requested
+   needs in order to build this item from the most raw version of the materials (i.e. wood, iron ingot, etc...) */
 export function ReverseSearchResults() {
   const location = useLocation();
   const { state } = location;
@@ -36,6 +38,7 @@ export function ReverseSearchResults() {
       return readableName;
     };
 
+  // Checks to make sure the API data is formatted correctly and send the API request
   useEffect(() => {
     if (!Array.isArray(sendToApi) || sendToApi.length === 0) return;
 

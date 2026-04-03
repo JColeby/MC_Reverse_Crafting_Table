@@ -6,10 +6,16 @@ export function SearchPage({ craftIDs }) {
   const [largeLoad, setLargeLoad] = useState("");
   const navigate = useNavigate();
 
+  // Check if we have craftIDs passed through. If not, input a loading message
   if (!craftIDs || typeof craftIDs !== "object") {
     return <div className="App-form">Loading items...</div>;
   }
 
+  /* This is the function for when you hit "Add item"
+     It will create a second dynamic row for a user to
+     input a new item. If we are past 10 item rows,
+     the page will display a message indicating that
+     they have hit their maximum amount of items. */
   function handleAddRow() {
     if (rows.length >= 10) {
       setLargeLoad("Only 10 items may be requested");
@@ -19,17 +25,19 @@ export function SearchPage({ craftIDs }) {
     setRows((prev) => [...prev, { itemID: "", quantity: "" }]);
   }
 
+  /* Handles the array of rows so than we can have a dynamic interface */
   function handleRowChange(index, field, value) {
     setRows((prev) =>
       prev.map((row, i) => (i === index ? { ...row, [field]: value } : row))
     );
   }
-
+  // Checks if there is more than one row. If there is, add a remove row button that can remove that row.
   function handleRemoveRow(index) {
     if (rows.length === 1) return; // always keep at least one row
     setRows((prev) => prev.filter((_, i) => i !== index));
   }
 
+  // Formats our row data into the correct JSON format that the APIs need.
   function buildApiData() {
     return rows
       .filter((row) => row.itemID !== "" && row.quantity !== "")
@@ -39,6 +47,7 @@ export function SearchPage({ craftIDs }) {
       }));
   }
 
+  // Upon hitting "What can I craft?" This takes you to /fsr
   function handleCraft(e) {
     e.preventDefault();
     const apiData = buildApiData();
@@ -46,6 +55,7 @@ export function SearchPage({ craftIDs }) {
     navigate("/fsr", { state: { apiData, craftIDs } });
   }
 
+  // Upon hitting "Find raw materials" This takes you to /rsr
   function handleReverseSearch(e) {
     e.preventDefault();
     const apiData = buildApiData();
@@ -68,7 +78,8 @@ export function SearchPage({ craftIDs }) {
             onChange={(e) => handleRowChange(index, "itemID", e.target.value)}
           >
             <option value="">Select an item</option>
-            {Object.entries(craftIDs).map(([key, value]) => {
+            {// makes the value of the IDs we get from the craftIDs dictionary into something human readable
+            Object.entries(craftIDs).map(([key, value]) => {
               const rawName = key.split("minecraft:")[1] || key;
               const readableName = rawName
                 .split("_")

@@ -1,9 +1,17 @@
 import { useNavigate } from "react-router-dom";
 
+/* This function creates a grid for the recipe passed in.
+   The grid is a 3x3 that represents what a shaped crafting
+   recipe would look like in game.
+   All recipes, including shaped ones, will also include the
+   items required to craft the item and will have a button
+   that will navigate to /rsr with the recipe on that recipe card
+   as the correct JSON object to get sent to the API. */
 export function RecipeCard({ recipe, getName, craftIDs }) {
   const { recipe: r, ingredients } = recipe;
   const navigate = useNavigate();
 
+  // Gets the name of the associated itemID
   const keyToName = {};
   ingredients.forEach(ing => {
     if (ing.patternkey) keyToName[ing.patternkey] = getName(ing.itemid);
@@ -20,7 +28,8 @@ export function RecipeCard({ recipe, getName, craftIDs }) {
       </div>
         <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
         
-        {r.pattern && (
+        {// This is where the 3x3 grid starts
+        r.pattern && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 50px)", gap: 4 }}>
           {r.pattern.split("").map((char, i) => (
 
