@@ -47,38 +47,59 @@ Here is some sample json for all the objects that are either passed in by the fr
 * RecipeSearchList - returned by the forwardSearch endpoint
 ```json
 {
-  "recipies": [
+  "recipes": [
     {
-      "recipeid": 1,
-      "recipeitemid": 101,
-      "ingredientitemid": 202,
-      "recipetype": "crafting",
-      "pattern": "XXX",
-      "patternkey": "X"
+      "recipe": {
+        "recipeid": 1,
+        "recipetype": "crafting",
+        "resultquantity": 4,
+        "pattern": "XXXX XXXX",
+        "itemid": 101
+      },
+      "ingredients": [
+        {
+          "itemid": 201,
+          "patternkey": "X"
+        }
+      ]
     },
     {
-      "recipeid": 1,
-      "recipeitemid": 101,
-      "ingredientitemid": 203,
-      "recipetype": "crafting",
-      "pattern": "XXX",
-      "patternkey": "X"
+      "recipe": {
+        "recipeid": 2,
+        "recipetype": "smelting",
+        "resultquantity": 1,
+        "pattern": null,
+        "itemid": 102
+      },
+      "ingredients": [
+        {
+          "itemid": 202,
+          "patternkey": null
+        },
+        {
+          "itemid": 203,
+          "patternkey": null
+        }
+      ]
     },
     {
-      "recipeid": 2,
-      "recipeitemid": 102,
-      "ingredientitemid": 204,
-      "recipetype": "smelting",
-      "pattern": "X_X",
-      "patternkey": "X"
-    },
-    {
-      "recipeid": 2,
-      "recipeitemid": 102,
-      "ingredientitemid": 205,
-      "recipetype": "smelting",
-      "pattern": "X_X",
-      "patternkey": "_"
+      "recipe": {
+        "recipeid": 3,
+        "recipetype": "crafting",
+        "resultquantity": null,
+        "pattern": "AB BA    ",
+        "itemid": 103
+      },
+      "ingredients": [
+        {
+          "itemid": 204,
+          "patternkey": "A"
+        },
+        {
+          "itemid": 205,
+          "patternkey": "B"
+        }
+      ]
     }
   ]
 }
