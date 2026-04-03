@@ -56,30 +56,23 @@ export function ReverseSearchResults() {
     <div style={{ maxWidth: 640, margin: "0 auto" }}>
       <h2 className="App-form">Reverse Search Results</h2>
       <button onClick={() => navigate('/searchPage')}>Make a new search</button>
+
       <h3 className="App-form">Raw Materials</h3>
-      {data?.recipes?.map((r, i) => (
-        <div key={i} style={ cardStyle }>
-          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-            <h3 style={{ margin: 0 }}>{getName(r.recipe.itemid)}</h3>
-            <p style={{ margin: 0 }}>{r.recipe.recipetype}</p>
-          </div>
-          <ul style={{ margin: 0, padding: "0 0 0 16px" }}>
-            {r.ingredients.map((ing, j) => (
-              <li key={j}>
-                {getName(ing.itemid)} × {ing.itemquantity}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )) || "Loading..."}
-      <div>
+      <div style={cardStyle}>
+        <ul style={{ margin: 0, padding: "0 0 0 16px" }}>
+          {data?.itemlist?.map((item, i) => (
+            <li key={i}>
+              {getName(item.itemid)} × {item.itemquantity}
+            </li>
+          )) || "Loading..."}
+        </ul>
+      </div>
+
+
       <h3 className="App-form">Recipes</h3>
-      <ul>
         {data?.recipes?.map((r, i) => (
             <RecipeCard key={i} recipe={r} getName={getName} craftIDs={craftIDs}/>
         )) || "Loading..."}
-      </ul>
-      </div>
     </div>
   );
 }

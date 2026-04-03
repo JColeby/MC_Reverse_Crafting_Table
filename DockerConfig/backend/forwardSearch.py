@@ -43,7 +43,7 @@ def main(request: List[ItemCount], cursor) -> RecipeSearchList:
 
         # convert `Ingredient` → `RecipeSearchIngredient` for the response
         all_search_ings = [
-            RecipeSearchIngredient(itemid=ing.itemid, patternkey=ing.patternkey)
+            RecipeSearchIngredient(itemid=ing.itemid, patternkey=ing.patternkey, itemquantity=ing.itemquantity)
             for ing in all_ing_rows
         ]
 

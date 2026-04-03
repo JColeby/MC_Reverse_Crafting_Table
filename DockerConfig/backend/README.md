@@ -59,7 +59,8 @@ Here is some sample json for all the objects that are either passed in by the fr
       "ingredients": [
         {
           "itemid": 201,
-          "patternkey": "X"
+          "patternkey": "X",
+          "itemquantity": 8
         }
       ]
     },
@@ -74,11 +75,13 @@ Here is some sample json for all the objects that are either passed in by the fr
       "ingredients": [
         {
           "itemid": 202,
-          "patternkey": null
+          "patternkey": null,
+          "itemquantity": 2
         },
         {
           "itemid": 203,
-          "patternkey": null
+          "patternkey": null,
+          "itemquantity": 1
         }
       ]
     },
@@ -93,11 +96,13 @@ Here is some sample json for all the objects that are either passed in by the fr
       "ingredients": [
         {
           "itemid": 204,
-          "patternkey": "A"
+          "patternkey": "A",
+          "itemquantity": 2
         },
         {
           "itemid": 205,
-          "patternkey": "B"
+          "patternkey": "B",
+          "itemquantity": 2
         }
       ]
     }

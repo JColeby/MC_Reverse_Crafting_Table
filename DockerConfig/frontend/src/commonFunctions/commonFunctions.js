@@ -18,7 +18,7 @@ export function RecipeCard({ recipe, getName, craftIDs }) {
   });
 
   return (
-    <div style={{ margin: "20px auto", padding: 10, border: "1px solid #8b8b8b", 
+    <div style={{ margin: "20px auto", padding: 10, border: "1px solid #8b8b8b",
     backgroundColor: "#c6c6c6", display:"flex", flexDirection: "column", gap: 12, maxWidth: 600 }}>
       <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
 
@@ -49,7 +49,7 @@ export function RecipeCard({ recipe, getName, craftIDs }) {
 
       <ul style={{ margin: 0, padding: "0 0 0 16px" }}>
         {ingredients.map((ing, j) => (
-          <li key={j}>{getName(ing.itemid)}</li>
+          <li key={j}> {getName(ing.itemid)} × {ing.itemquantity} </li>
         ))}
       </ul>
       

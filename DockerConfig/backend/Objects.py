@@ -38,6 +38,7 @@ class Ingredient(BaseModel):
 class RecipeSearchIngredient(BaseModel):
     itemid: int
     patternkey: Optional[str] = None
+    itemquantity: int
 
 
 class RecipeSearch(BaseModel):
