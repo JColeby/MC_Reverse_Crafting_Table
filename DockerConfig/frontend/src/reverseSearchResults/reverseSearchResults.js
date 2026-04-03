@@ -1,20 +1,32 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { RecipeCard } from "../commonFunctions/commonFunctions";
 
+const cardStyle = {
+  margin: "20px auto",
+  padding: 10,
+  border: "1px solid #8b8b8b",
+  backgroundColor: "#c6c6c6",
+  display: "flex",
+  flexDirection: "column",
+  gap: 12,
+  maxWidth: 600,
+};
+
+/* This function displays every recipe of every item that the items the user requested
+   needs in order to build this item from the most raw version of the materials (i.e. wood, iron ingot, etc...) */
 export function ReverseSearchResults() {
-  const { state } = useLocation();
+  const location = useLocation();
+  const { state } = location;
   const sendToApi = state?.apiData;
   const craftIDs = state?.craftIDs;
+  const navigate = useNavigate();
 
   const [data, setData] = useState();
 
   // combine name lookup + formatting into one function
   function getName(id) {
-    // craftIDs?.[id]
-    //   ?.replace(/_/g, " ")
-    //   .replace(/\b\w/g, c => c.toUpperCase()) || `Item ${id}`;
-    const selectedName = craftIDs.find(
+    const selectedName = Object.entries(craftIDs).find(
       ([key, value]) => value === Number(id)
     )?.[0]?.split("minecraft:")[1] || "Unknown";
 
@@ -26,8 +38,9 @@ export function ReverseSearchResults() {
       return readableName;
     };
 
+  // Checks to make sure the API data is formatted correctly and send the API request
   useEffect(() => {
-    if (!sendToApi?.length) return;
+    if (!Array.isArray(sendToApi) || sendToApi.length === 0) return;
 
     fetch("http://localhost:8000/reverseSearch/", {
       method: "POST",
@@ -37,18 +50,20 @@ export function ReverseSearchResults() {
       .then(res => res.json())
       .then(setData)
       .catch(console.error);
-  }, [sendToApi]);
+  }, [sendToApi, location]);
 
   return (
-    <div>
+    <div style={{ maxWidth: 640, margin: "0 auto" }}>
       <h2 className="App-form">Reverse Search Results</h2>
-
+      <button onClick={() => navigate('/searchPage')}>Make a new search</button>
+      <h3 className="App-form">Raw Materials</h3>
       {data?.recipes?.map((r, i) => (
-        <div key={i} style={{ margin: 20, padding: 10, border: "1px solid #ccc", backgroundColor: "#C6C6C6" }}>
-          <h3>{getName(r.recipe.itemid)}</h3>
-          <p>{r.recipe.recipetype}</p>
-
-          <ul>
+        <div key={i} style={ cardStyle }>
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            <h3 style={{ margin: 0 }}>{getName(r.recipe.itemid)}</h3>
+            <p style={{ margin: 0 }}>{r.recipe.recipetype}</p>
+          </div>
+          <ul style={{ margin: 0, padding: "0 0 0 16px" }}>
             {r.ingredients.map((ing, j) => (
               <li key={j}>
                 {getName(ing.itemid)} × {ing.itemquantity}
@@ -57,11 +72,11 @@ export function ReverseSearchResults() {
           </ul>
         </div>
       )) || "Loading..."}
-      <div className="App-form">
-      <h3>Raw Materials</h3>
+      <div>
+      <h3 className="App-form">Recipes</h3>
       <ul>
         {data?.recipes?.map((r, i) => (
-            <RecipeCard key={i} recipe={r} getName={getName} />
+            <RecipeCard key={i} recipe={r} getName={getName} craftIDs={craftIDs}/>
         )) || "Loading..."}
       </ul>
       </div>

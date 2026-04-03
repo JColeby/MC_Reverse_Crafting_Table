@@ -1,20 +1,40 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { RecipeCard } from "../commonFunctions/commonFunctions";
 
+/* This is the function that will display all recipes that the items the user
+   requested are used in. There is a return to search button and each recipe card
+   will allow you to reverseSearch it to find the raw materials that you need to
+   make that specific recipes\ */
 export function ForwardSearchResults() {
-  const { state } = useLocation();
+  const location = useLocation();
+  const { state } = location;
   const sendToApi = state?.apiData;
   const craftIDs = state?.craftIDs;
+  const navigate = useNavigate();
 
   const [data, setData] = useState();
-  const getName = (id) =>
-    craftIDs?.[id]
-      ?.replace(/_/g, " ")
-      .replace(/\b\w/g, c => c.toUpperCase()) || `Item ${id}`;
+  
+  // Grabs the name of the item and makes it human readable
+  function getName(id) {
+    const selectedName = Object.entries(craftIDs).find(
+      ([key, value]) => value === Number(id)
+    )?.[0]?.split("minecraft:")[1] || "Unknown";
 
+    // Make name human readable
+    const readableName = selectedName
+      .split("_")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+      return readableName;
+    };
+
+  /* Checks if the API data is formatted correctly. If it
+     is, then we send the data to the /forwardSearch/ API */
   useEffect(() => {
-    if (!sendToApi?.length) return;
+    if (!Array.isArray(sendToApi) || sendToApi.length === 0) return;
+
+    setData(undefined);
 
     fetch("http://localhost:8000/forwardSearch/", {
       method: "POST",
@@ -24,25 +44,15 @@ export function ForwardSearchResults() {
       .then(res => res.json())
       .then(setData)
       .catch(console.error);
-  }, [sendToApi]);
+  }, [location, sendToApi]);
 
   return (
     <div>
-      <h2>Forward Search Results</h2>
-
+      <h2 className="App-form">Forward Search Results</h2>
+      <button onClick={() => navigate('/searchPage')}>Make a new search</button>
       {data?.recipes?.map((r, i) => (
-        <RecipeCard key={i} recipe={r} getName={getName} />
+        <RecipeCard key={i} recipe={r} getName={getName} craftIDs={craftIDs} />
         )) || "Loading..."}
-      <div className="App-form">
-      <h3>Raw Materials</h3>
-      <ul>
-        {data?.itemlist?.map((item, i) => (
-          <li key={i}>
-            {getName(item.itemid)} × {item.itemquantity}
-          </li>
-        )) || "Loading..."}
-      </ul>
-      </div>
     </div>
   );
 }
