@@ -150,5 +150,4 @@ Here is some sample json for all the objects that are either passed in by the fr
 ```
 
 ## forwardSearch.py and reverseSearch.py
-These files contain the code that will retrieve and format the code from the database.
-They haven't been written yet.
+These files contain the code that will retrieve and format the code from the database. Both of the files have detailed docstrings that describe the logic used to retrieve and format the data from the database.
